@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://6kg60xwskn2p"]
+
+[ext_resource type="PackedScene" uid="uid://xy6dmrpccjnm" path="res://scenes/level_1/level_1.tscn" id="1_6iw8k"]
+
+[node name="MainScene" type="Node2D" unique_id=348107646]
+
+[node name="Level1" parent="." unique_id=202322026 instance=ExtResource("1_6iw8k")]
+position = Vector2(0, -1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=672767520]
+zoom = Vector2(0.505, 0.52)
