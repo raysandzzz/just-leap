@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m5va2tic77hf"]
 
-[ext_resource type="Script" uid="uid://bfbrgvi40k4v2" path="res://scenes/player/player.gd" id="1_75vfm"]
+[ext_resource type="Script" uid="uid://ckq0c5gae5fbi" path="res://scenes/player/player.gd" id="1_75vfm"]
 [ext_resource type="Texture2D" uid="uid://cbxhjqkq076hm" path="res://assets/Main Characters/Virtual Guy/Double Jump (32x32).png" id="1_p47bc"]
 [ext_resource type="Texture2D" uid="uid://dmw6w8y71vxny" path="res://assets/Main Characters/Virtual Guy/Fall (32x32).png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://chwngr1gbmeby" path="res://assets/Main Characters/Virtual Guy/Idle (32x32).png" id="3_0owmy"]
@@ -283,8 +283,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw8a5"]
 size = Vector2(22, 25)
 
-[node name="Player" type="CharacterBody2D" unique_id=182577052]
+[node name="Player" type="CharacterBody2D" unique_id=182577052 node_paths=PackedStringArray("animation")]
 script = ExtResource("1_75vfm")
+animation = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786820799]
 sprite_frames = SubResource("SpriteFrames_8w0r3")
