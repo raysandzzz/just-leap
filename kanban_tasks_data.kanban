@@ -1,0 +1,58 @@
+{
+	"categories": [
+		{
+			"uuid": "152da342-9b3b-41b8-abea-8c800896961e",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "c4866d47-aa45-4c11-89b0-f32feb950768",
+			"title": "Todo",
+			"tasks": [
+				"18eed167-8dc8-44f3-8d60-6457e9b48388",
+				"73786890-5bc0-44ac-8c14-563a87501301"
+			]
+		},
+		{
+			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "b9fd6e0b-7c66-4d0c-8599-6b2140a09944",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "18eed167-8dc8-44f3-8d60-6457e9b48388",
+			"title": "Level2",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "73786890-5bc0-44ac-8c14-563a87501301",
+			"title": "Object to take to the goal",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"c4866d47-aa45-4c11-89b0-f32feb950768"
+			],
+			[
+				"cc58771e-677e-482a-bbaa-3c3cf00cf117"
+			],
+			[
+				"b9fd6e0b-7c66-4d0c-8599-6b2140a09944"
+			]
+		]
+	}
+}
