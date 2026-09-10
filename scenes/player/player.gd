@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var animation: AnimatedSprite2D
 
-var _speed: float = 200.0
+var _speed: float = 150.0
 var _jump_speed: float = -320.0
 
 func _physics_process(delta: float):
