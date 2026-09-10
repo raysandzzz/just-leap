@@ -2,4 +2,8 @@
 .godot/
 /android/
 
-addons
+# Ignore private notes
+addons/**/*.json
+addons/**/*.cfg
+addons/**/*.txt
+addons/**/data/
