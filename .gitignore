@@ -7,3 +7,4 @@ addons/**/*.json
 addons/**/*.cfg
 addons/**/*.txt
 addons/**/data/
+kanban_tasks_data.kanban
