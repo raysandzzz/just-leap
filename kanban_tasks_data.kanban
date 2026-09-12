@@ -12,14 +12,16 @@
 			"title": "Todo",
 			"tasks": [
 				"73786890-5bc0-44ac-8c14-563a87501301",
-				"6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e",
-				"8a6df69b-9def-4399-9264-6078bc873ba3"
+				"8a6df69b-9def-4399-9264-6078bc873ba3",
+				"93f9c1a3-ef7b-41b2-a519-1b032143ec3f"
 			]
 		},
 		{
 			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e"
+			]
 		},
 		{
 			"uuid": "b9fd6e0b-7c66-4d0c-8599-6b2140a09944",
@@ -45,6 +47,13 @@
 		{
 			"uuid": "8a6df69b-9def-4399-9264-6078bc873ba3",
 			"title": "Define a goal to take the object xD",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "93f9c1a3-ef7b-41b2-a519-1b032143ec3f",
+			"title": "A texture for some terrain tiles to generate a friction",
 			"description": "",
 			"category": "152da342-9b3b-41b8-abea-8c800896961e",
 			"steps": []
