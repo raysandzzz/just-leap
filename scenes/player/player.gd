@@ -5,7 +5,7 @@ extends CharacterBody2D
 const MAX_JUMPS = 1
 
 var _speed: float = 150.0
-var _jump_speed: float = -320.0
+var _jump_speed: float = -300.0
 var _jumps_left: int = MAX_JUMPS
 var _can_wall_jump: bool = true
 var _current_slide_speed: float = 80.0  # Default value
@@ -79,7 +79,7 @@ func _physics_process(delta: float):
 	else:
 		animation.play("Idle")
 
-# A function to get how "frictional" (XD) is an specific tile
+# A function to get how "frictional" (XD) is an specific tile.
 func _custom_friction():
 	if is_on_wall():
 		for i in range(get_slide_collision_count()):
