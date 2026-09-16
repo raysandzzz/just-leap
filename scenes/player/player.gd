@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 @export var animation: AnimatedSprite2D
 
-const MAX_JUMPS = 1
+const MAX_JUMPS: int = 1
+const DEFAULT_SPEED: float = 150.0
 
-var _speed: float = 150.0
+var _speed: float = DEFAULT_SPEED
+var _current_floor_speed: float = DEFAULT_SPEED
 var _jump_speed: float = -300.0
 var _jumps_left: int = MAX_JUMPS
 var _can_wall_jump: bool = true
@@ -20,10 +22,10 @@ func _physics_process(delta: float):
 	
 	# Horizontal movement
 	if Input.is_action_pressed("left"):
-		velocity.x = -(_speed)
+		velocity.x = -(_current_floor_speed)
 		animation.flip_h = true
 	elif Input.is_action_pressed("right"):
-		velocity.x = _speed
+		velocity.x = _current_floor_speed
 		animation.flip_h = false
 	else:
 		velocity.x = 0
@@ -79,21 +81,29 @@ func _physics_process(delta: float):
 	else:
 		animation.play("Idle")
 
-# A function to get how "frictional" (XD) is an specific tile.
+
+# A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():
-	if is_on_wall():
-		for i in range(get_slide_collision_count()):
-			var collision = get_slide_collision(i)
-			var collider = collision.get_collider()
+	_current_floor_speed = _speed # Speed reset
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is TileMapLayer:
+			var hit_pos = collision.get_position() - collision.get_normal()
+			var tile_coord = collider.local_to_map(collider.to_local(hit_pos))
+			var tile_data = collider.get_cell_tile_data(tile_coord)
 			
-			# Check if collider is a tile
-			if collider is TileMapLayer:
-				var hit_pos = collision.get_position() - collision.get_normal() 
-				var tile_coord = collider.local_to_map(collider.to_local(hit_pos))
-				var tile_data = collider.get_cell_tile_data(tile_coord)
+			if tile_data:
+				# WALL FRICTION
+				if is_on_wall():
+					var wall_friction = tile_data.get_custom_data("friction")
+					if wall_friction != null:
+						_current_slide_speed = wall_friction
 				
-				if tile_data:
-					var custom_speed = tile_data.get_custom_data("friction")
-					if custom_speed != null:
-						_current_slide_speed = custom_speed
-						break
+				# FLOOR FRICTION (read the custom data layer from the floor)
+				if is_on_floor() and collision.get_normal().y < -0.5:
+					var floor_friction = tile_data.get_custom_data("floor_friction")
+					if floor_friction != null and floor_friction > 0.0:
+						_current_floor_speed = floor_friction

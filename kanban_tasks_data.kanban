@@ -11,30 +11,32 @@
 			"uuid": "c4866d47-aa45-4c11-89b0-f32feb950768",
 			"title": "Todo",
 			"tasks": [
-				"73786890-5bc0-44ac-8c14-563a87501301"
+				"d692b65d-ce1d-47c2-8392-dd120d94cb12",
+				"8a6df69b-9def-4399-9264-6078bc873ba3",
+				"73786890-5bc0-44ac-8c14-563a87501301",
+				"a8f0b8d6-5f41-4289-b1e9-458ee807c4fc"
 			]
 		},
 		{
 			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
 			"title": "Doing",
-			"tasks": [
-				"6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e",
-				"8a6df69b-9def-4399-9264-6078bc873ba3"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "b9fd6e0b-7c66-4d0c-8599-6b2140a09944",
 			"title": "Done",
 			"tasks": [
-				"93f9c1a3-ef7b-41b2-a519-1b032143ec3f"
+				"93f9c1a3-ef7b-41b2-a519-1b032143ec3f",
+				"6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e",
+				"91d6c45a-982a-4ba9-9b4f-36169f5ec7d1"
 			]
 		}
 	],
 	"tasks": [
 		{
 			"uuid": "73786890-5bc0-44ac-8c14-563a87501301",
-			"title": "DEFINE A TARGET",
-			"description": "",
+			"title": "Code the trophy to win the level after activate flag",
+			"description": "With the respective congratulations screen, but this one could be added later, so take it chill",
 			"category": "152da342-9b3b-41b8-abea-8c800896961e",
 			"steps": []
 		},
@@ -47,7 +49,7 @@
 		},
 		{
 			"uuid": "8a6df69b-9def-4399-9264-6078bc873ba3",
-			"title": "Define a goal to take the object xD",
+			"title": "Include the trophy sprite",
 			"description": "",
 			"category": "152da342-9b3b-41b8-abea-8c800896961e",
 			"steps": []
@@ -55,6 +57,27 @@
 		{
 			"uuid": "93f9c1a3-ef7b-41b2-a519-1b032143ec3f",
 			"title": "A texture for some terrain tiles to generate a friction",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "d692b65d-ce1d-47c2-8392-dd120d94cb12",
+			"title": "Make a stopwatch which gets faster when flag is act",
+			"description": "Maybe change the color and expand the timer for desesperation feeling XD",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "91d6c45a-982a-4ba9-9b4f-36169f5ec7d1",
+			"title": "Include the flag",
+			"description": "Include the flag sprite with its respective animations. And code it so when the player interact (walk around) the animation change and flag is now active.",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "a8f0b8d6-5f41-4289-b1e9-458ee807c4fc",
+			"title": "Add a background music, maybe at the end",
 			"description": "",
 			"category": "152da342-9b3b-41b8-abea-8c800896961e",
 			"steps": []
