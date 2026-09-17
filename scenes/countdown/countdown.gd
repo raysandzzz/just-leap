@@ -7,14 +7,18 @@ extends CanvasLayer
 var time_left: float = 0.0
 var time_speed: float = 1.0
 var twinkle_counter: float = 0.0
-var flag_is_activate: bool = false
+var paused: bool = false
 
 func _ready():
 	time_left = init_time
 	_update_text()
 	Events.flag_activate.connect(_activate_fast_mode)
+	Events.trophy_activate.connect(pause_timer)
 
 func _process(delta: float):
+	if paused:
+		return
+	
 	if time_left > 0.0:
 		time_left -= delta * time_speed
 		if time_left <= 0.0:
@@ -22,7 +26,7 @@ func _process(delta: float):
 		
 		_update_text()
 		
-		if flag_is_activate:
+		if Events.is_flag_active:
 			_process_twinkle(delta)
 
 func _update_text():
@@ -31,7 +35,7 @@ func _update_text():
 
 func _activate_fast_mode():
 	time_speed = 2.0
-	flag_is_activate = true
+	Events.is_flag_active = true
 
 func _process_twinkle(delta: float):
 	twinkle_counter += delta * 6.0    # This one basically manages the "twinkspeed" by change the float number
@@ -43,3 +47,10 @@ func _process_twinkle(delta: float):
 func _time_over():
 	label.modulate = Color.RED
 	time_left = 0.0
+
+func pause_timer() -> void:
+	paused = true
+	label.modulate = Color.GOLD
+
+func play_timer() -> void:
+	paused = false

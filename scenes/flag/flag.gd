@@ -6,6 +6,7 @@ var _counter = 1
 
 func _on_body_entered(_body: Node2D):
 	if _counter > 0:
+		Events.is_flag_active = true
 		Events.flag_activate.emit()
 		animation.play("FlagOut")
 		await animation.animation_finished
