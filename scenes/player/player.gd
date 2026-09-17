@@ -11,43 +11,30 @@ var _jump_speed: float = -300.0
 var _jumps_left: int = MAX_JUMPS
 var _can_wall_jump: bool = true
 var _current_slide_speed: float = 80.0  # Default value
+var _controls_locked: bool = false
 
+func _ready() -> void:
+	Events.trophy_activate.connect(_on_level_finished)
+	Events.time_over.connect(_time_over)
 
 func _physics_process(delta: float):
 	# Get the directional input (-1, 1)
 	var input_dir = Input.get_axis("left", "right")
 	
+	if _controls_locked:
+		return
+	
 	# Gravity
 	velocity += get_gravity() * delta
 	
 	# Horizontal movement
-	if Input.is_action_pressed("left"):
-		velocity.x = -(_current_floor_speed)
-		animation.flip_h = true
-	elif Input.is_action_pressed("right"):
-		velocity.x = _current_floor_speed
-		animation.flip_h = false
-	else:
-		velocity.x = 0
+	_horizontal_movement()
 	
 	# Double jump // Wall jump
-	if is_on_floor():
-		_jumps_left = MAX_JUMPS
-		_can_wall_jump = true
-	elif is_on_wall():
-		if _can_wall_jump:
-			_jumps_left = 1
-	else:
-		_can_wall_jump = true
+	_doublewall_jump()
 	
 	# Regular Jump and Wall jump reset
-	if Input.is_action_just_pressed("jump") and _jumps_left > 0:
-		velocity.y = _jump_speed
-		_jumps_left -= 1
-		if is_on_wall():
-			_can_wall_jump = false
-		elif not is_on_floor():
-			animation.play("DoubleJump")
+	_regular_jump()
 	
 	move_and_slide()
 	
@@ -81,6 +68,47 @@ func _physics_process(delta: float):
 	else:
 		animation.play("Idle")
 
+func _horizontal_movement():
+	if Input.is_action_pressed("left"):
+		velocity.x = -(_current_floor_speed)
+		animation.flip_h = true
+	elif Input.is_action_pressed("right"):
+		velocity.x = _current_floor_speed
+		animation.flip_h = false
+	else:
+		velocity.x = 0
+
+func _doublewall_jump():
+		if is_on_floor():
+			_jumps_left = MAX_JUMPS
+			_can_wall_jump = true
+		elif is_on_wall():
+			if _can_wall_jump:
+				_jumps_left = 1
+		else:
+			_can_wall_jump = true
+
+func _regular_jump():
+	if Input.is_action_just_pressed("jump") and _jumps_left > 0:
+		velocity.y = _jump_speed
+		_jumps_left -= 1
+		if is_on_wall():
+			_can_wall_jump = false
+		elif not is_on_floor():
+			animation.play("DoubleJump")
+
+func _on_level_finished() -> void:
+	_controls_locked = true
+	velocity.x = 0
+	animation.play("Fall")
+	animation.pause()
+	await get_tree().create_timer(2.0).timeout
+	animation.play("Vanish")
+
+func _time_over():
+	_controls_locked = true
+	velocity.x = 0
+	animation.play("Explosion")
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():

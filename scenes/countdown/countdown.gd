@@ -47,6 +47,7 @@ func _process_twinkle(delta: float):
 func _time_over():
 	label.modulate = Color.RED
 	time_left = 0.0
+	Events.time_over.emit()
 
 func pause_timer() -> void:
 	paused = true
