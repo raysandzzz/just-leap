@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d0ofuekn75b0p"]
+
+[ext_resource type="Script" uid="uid://bls6ybxub1d28" path="res://scenes/countdown/countdown.gd" id="1_7dsqq"]
+[ext_resource type="LabelSettings" uid="uid://c5q6lvkufw757" path="res://assets/Fonts/pixel_font.tres" id="1_r25xj"]
+
+[node name="Countdown" type="CanvasLayer" unique_id=85377098]
+script = ExtResource("1_7dsqq")
+
+[node name="Timer" type="Timer" parent="." unique_id=1860991890]
+
+[node name="Control" type="Control" parent="." unique_id=599405979]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 12.0
+offset_right = 20.0
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1097365384]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_right = 33.0
+offset_bottom = 16.0
+grow_horizontal = 2
+text = "Time: 00.00"
+label_settings = ExtResource("1_r25xj")

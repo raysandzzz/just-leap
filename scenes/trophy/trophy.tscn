@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dik4ri8ulab6" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="1_38sld"]
 [ext_resource type="Texture2D" uid="uid://dqp0um6mv4i10" path="res://assets/Items/Checkpoints/End/End (Pressed) (64x64).png" id="2_mkj6r"]
-[ext_resource type="Script" uid="uid://ckv0bi1y541vf" path="res://scenes/trophy/area_2d.gd" id="3_mkj6r"]
+[ext_resource type="Script" uid="uid://ckv0bi1y541vf" path="res://scenes/trophy/trophy.gd" id="3_mkj6r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvht2"]
 atlas = ExtResource("1_38sld")

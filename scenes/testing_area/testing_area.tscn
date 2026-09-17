@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://m5va2tic77hf" path="res://scenes/player/player.tscn" id="2_tjjbt"]
 [ext_resource type="PackedScene" uid="uid://cd3md01rjxsvy" path="res://scenes/flag/flag.tscn" id="4_2dri5"]
 [ext_resource type="PackedScene" uid="uid://b4cwnwf6oirjl" path="res://scenes/trophy/trophy.tscn" id="5_i56g1"]
+[ext_resource type="PackedScene" uid="uid://d0ofuekn75b0p" path="res://scenes/countdown/countdown.tscn" id="6_weg1y"]
 
 [node name="TestingArea" type="Node2D" unique_id=1305349850]
 
@@ -25,3 +26,5 @@ position = Vector2(129, 151)
 
 [node name="Trophy" parent="." unique_id=1306856223 instance=ExtResource("5_i56g1")]
 position = Vector2(118.000015, -111)
+
+[node name="Countdown" parent="." unique_id=85377098 instance=ExtResource("6_weg1y")]
