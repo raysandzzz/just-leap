@@ -285,6 +285,7 @@ size = Vector2(22, 25)
 
 [node name="Player" type="CharacterBody2D" unique_id=182577052 node_paths=PackedStringArray("animation") groups=["dust_player"]]
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_75vfm")
 animation = NodePath("AnimatedSprite2D")
 
