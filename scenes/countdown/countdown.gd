@@ -33,8 +33,8 @@ func _connect_player_spawn() -> void:
 	var players: Array[Node] = get_tree().get_nodes_in_group("players")
 	if not players.is_empty():
 		var player: Node = players[0]
-		if not player.spawn_finished.is_connected(play_timer):
-			player.spawn_finished.connect(play_timer, CONNECT_ONE_SHOT)
+		if not Events.spawn_finished.is_connected(play_timer):
+			Events.spawn_finished.connect(play_timer, CONNECT_ONE_SHOT)
 	else:
 		await get_tree().process_frame
 		if is_inside_tree():

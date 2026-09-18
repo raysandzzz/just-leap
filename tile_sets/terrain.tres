@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b542ar1bfhd84" path="res://assets/Terrain/Terrain (16x16).png" id="1_5jwvq"]
 [ext_resource type="PackedScene" uid="uid://ppg0tesepk60" path="res://scenes/traps/spike.tscn" id="2_o45ys"]
+[ext_resource type="PackedScene" uid="uid://dmctd7oswp72" path="res://scenes/traps/saw.tscn" id="3_350j4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igcjm"]
 texture = ExtResource("1_5jwvq")
@@ -236,6 +237,7 @@ texture = ExtResource("1_5jwvq")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_350j4"]
 scenes/1/scene = ExtResource("2_o45ys")
+scenes/2/scene = ExtResource("3_350j4")
 
 [resource]
 physics_layer_0/collision_layer = 1

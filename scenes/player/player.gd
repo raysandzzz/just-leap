@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal player_dead
-signal spawn_finished
 
 @export var animation: AnimatedSprite2D
 
@@ -142,7 +141,11 @@ func _play_appear_sequence() -> void:
 	animation.play("Appear")
 	await animation.animation_finished
 	_controls_locked = false
-	spawn_finished.emit()
+	Events.spawn_finished.emit()
+
+func bounce(force: float):
+	# Override vertical velocity directly to cancel fall momentum
+	velocity.y = -force
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():
