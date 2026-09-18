@@ -238,6 +238,9 @@ region = Rect2(128, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rw8a5")
 }, {
 "duration": 1.0,
@@ -440,7 +443,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Vanish",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -474,7 +477,7 @@ animation = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=786820799]
 sprite_frames = SubResource("SpriteFrames_8w0r3")
-animation = &"Explosion"
+animation = &"Appear"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1165993149]
 position = Vector2(0, 3.5)

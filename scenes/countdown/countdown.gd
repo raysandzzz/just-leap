@@ -13,7 +13,7 @@ func _ready():
 	time_left = init_time
 	time_speed = 1.0
 	twinkle_counter = 0.0
-	paused = false
+	paused = true
 	label.modulate = Color.WHITE
 	Events.is_flag_active = false
 	
@@ -23,10 +23,22 @@ func _ready():
 		Events.flag_activate.connect(_activate_fast_mode)
 	if not Events.trophy_activate.is_connected(pause_timer):
 		Events.trophy_activate.connect(pause_timer)
+	if not Events.player_killed.is_connected(_on_player_killed):
+		Events.player_killed.connect(_on_player_killed)
 	
-	# Start counting only if the transition is finished
-	if not Transition.transition_finished.is_connected(play_timer):
-		Transition.transition_finished.connect(play_timer, CONNECT_ONE_SHOT)
+	# Start counting only if the transition and spawn is finished
+	_connect_player_spawn()
+
+func _connect_player_spawn() -> void:
+	var players: Array[Node] = get_tree().get_nodes_in_group("players")
+	if not players.is_empty():
+		var player: Node = players[0]
+		if not player.spawn_finished.is_connected(play_timer):
+			player.spawn_finished.connect(play_timer, CONNECT_ONE_SHOT)
+	else:
+		await get_tree().process_frame
+		if is_inside_tree():
+			_connect_player_spawn()
 
 func _process(delta: float):
 	if paused:
@@ -60,11 +72,16 @@ func _process_twinkle(delta: float):
 func _time_over():
 	label.modulate = Color.RED
 	time_left = 0.0
+	paused = true
 	Events.time_over.emit()
 
-func pause_timer() -> void:
+func pause_timer() -> void: # Pause timer after pressed trophy
 	paused = true
 	label.modulate = Color.GOLD
+
+func _on_player_killed() -> void: # Pause timer after player get killed
+	paused = true
+	label.modulate = Color.RED # Shows red instead of gold
 
 func play_timer() -> void:
 	paused = false

@@ -6,6 +6,7 @@ var _current_scene: int = 1
 var _instanced_scene: Node
 
 func _ready() -> void:
+	Events.level_finished.connect(_next_level)
 	_create_scene(_current_scene)
 
 func _create_scene(scene_number: int) -> void:
@@ -20,14 +21,20 @@ func _create_scene(scene_number: int) -> void:
 		var player: Node = players[0]
 		if not player.player_dead.is_connected(_restart):
 			player.player_dead.connect(_restart, CONNECT_ONE_SHOT)
+	
+	Transition.open_circle()
 
 func _delete_scene() -> void:
 	if is_instance_valid(_instanced_scene):
 		_instanced_scene.queue_free()
+
+func _next_level() -> void:
+	_current_scene += 1
+	_delete_scene()
+	_create_scene.call_deferred(_current_scene)
 
 func _restart() -> void:
 	_delete_scene()
 	# Wait for the old scene to actually be removed from the tree
 	await get_tree().process_frame
 	_create_scene(_current_scene)
-	Transition.open_circle()

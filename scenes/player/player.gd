@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal player_dead
+signal spawn_finished
 
 @export var animation: AnimatedSprite2D
 
@@ -17,6 +18,12 @@ var _controls_locked: bool = false
 var _dead: bool = false
 
 func _ready() -> void:
+	# Keep player still while spawning
+	_controls_locked = true
+	velocity = Vector2.ZERO
+	
+	# Connect to start appearing once the transition finishes opening
+	Transition.transition_finished.connect(_play_appear_sequence, CONNECT_ONE_SHOT)
 	add_to_group("players")
 	Events.trophy_activate.connect(_on_level_finished)
 	Events.time_over.connect(_time_over)
@@ -122,12 +129,20 @@ func _time_over() -> void:
 	player_dead.emit()
 
 func kill_player():
+	Events.player_killed.emit()
+	
 	animation.modulate = Color(155.0, 0.0, 0.0, 1.0)
 	_dead = true
 	animation.stop()
+	
 	await get_tree().create_timer(0.5).timeout
 	player_dead.emit()
 
+func _play_appear_sequence() -> void:
+	animation.play("Appear")
+	await animation.animation_finished
+	_controls_locked = false
+	spawn_finished.emit()
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():
