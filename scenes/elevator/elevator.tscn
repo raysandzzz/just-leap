@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://co4g7usx4qjsm"]
+
+[ext_resource type="Texture2D" uid="uid://cfje5aasp4leb" path="res://assets/Traps/Falling Platforms/Off.png" id="1_7w7uo"]
+[ext_resource type="Script" uid="uid://d4fetax3ly7tq" path="res://scenes/elevator/elevator.gd" id="1_21fob"]
+[ext_resource type="Texture2D" uid="uid://b7dwhmg1mpn35" path="res://assets/Traps/Falling Platforms/On (32x10).png" id="2_21fob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hadwe"]
+atlas = ExtResource("1_7w7uo")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ved2"]
+atlas = ExtResource("2_21fob")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flwkg"]
+atlas = ExtResource("2_21fob")
+region = Rect2(32, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t22pv"]
+atlas = ExtResource("2_21fob")
+region = Rect2(64, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty58a"]
+atlas = ExtResource("2_21fob")
+region = Rect2(96, 0, 32, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hadwe")
+}],
+"loop": 0,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ved2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flwkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t22pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty58a")
+}],
+"loop": 1,
+"name": &"On",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
+size = Vector2(35.02637, 16.830858)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8w0r3"]
+
+[node name="Elevator" type="AnimatableBody2D" unique_id=61039481]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_21fob")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1749642636]
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"Off"
+autoplay = "Off"
+frame_progress = 1.0
+
+[node name="Base" type="CollisionShape2D" parent="." unique_id=985323055]
+position = Vector2(0, -1.0000004)
+scale = Vector2(0.79939765, 0.4753174)
+shape = SubResource("RectangleShape2D_h4t55")
+
+[node name="Detector" type="Area2D" parent="." unique_id=1880232473]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=952076719]
+position = Vector2(-14, -8)
+rotation = -1.5707964
+scale = Vector2(1.1999987, 2.799999)
+shape = SubResource("SegmentShape2D_8w0r3")
