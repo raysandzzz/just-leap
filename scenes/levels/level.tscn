@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc661ar64ufav"]
 
 [ext_resource type="PackedScene" uid="uid://m5va2tic77hf" path="res://scenes/player/player.tscn" id="1_mbbpy"]
+[ext_resource type="PackedScene" uid="uid://d0ofuekn75b0p" path="res://scenes/countdown/countdown.tscn" id="1_ouxo3"]
 [ext_resource type="PackedScene" uid="uid://dmctd7oswp72" path="res://scenes/traps/saw.tscn" id="2_ouxo3"]
 [ext_resource type="PackedScene" uid="uid://ppg0tesepk60" path="res://scenes/traps/spike.tscn" id="3_icy5c"]
 [ext_resource type="PackedScene" uid="uid://b7ticj2ag1fjw" path="res://scenes/trampoline/trampoline.tscn" id="4_rmjfq"]
@@ -9,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cd3md01rjxsvy" path="res://scenes/flag/flag.tscn" id="7_qogh7"]
 
 [node name="Level" type="Node2D" unique_id=52509437]
+z_index = 1
+
+[node name="Countdown" parent="." unique_id=85377098 instance=ExtResource("1_ouxo3")]
 
 [node name="Player" parent="." unique_id=182577052 instance=ExtResource("1_mbbpy")]
 
