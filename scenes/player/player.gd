@@ -104,6 +104,7 @@ func _on_level_finished() -> void:
 	animation.pause()
 	await get_tree().create_timer(2.0).timeout
 	animation.play("Vanish")
+	await Transition.close_circle(0.8)
 
 func _time_over():
 	_controls_locked = true
