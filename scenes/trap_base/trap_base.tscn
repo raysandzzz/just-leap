@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://crg4e2jvv7juh"]
+
+[ext_resource type="Script" uid="uid://c41m6fe6pdhyy" path="res://scenes/trap_base/death_zone.gd" id="1_00mcv"]
+
+[node name="TrapBase" type="Area2D" unique_id=1304619005]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_00mcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1278389922]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356072890]

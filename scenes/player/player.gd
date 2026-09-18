@@ -14,6 +14,7 @@ var _jumps_left: int = MAX_JUMPS
 var _can_wall_jump: bool = true
 var _current_slide_speed: float = 80.0  # Default value
 var _controls_locked: bool = false
+var _dead: bool = false
 
 func _ready() -> void:
 	add_to_group("players")
@@ -24,7 +25,7 @@ func _physics_process(delta: float):
 	# Get the directional input (-1, 1)
 	var input_dir = Input.get_axis("left", "right")
 	
-	if _controls_locked:
+	if _controls_locked || _dead:
 		return
 	
 	# Gravity
@@ -112,6 +113,7 @@ func _on_level_finished() -> void:
 	Events.level_finished.emit()
 
 func _time_over() -> void:
+	_dead = true
 	_controls_locked = true
 	velocity.x = 0
 	animation.play("Explosion")
@@ -119,8 +121,12 @@ func _time_over() -> void:
 	await Transition.close_circle(0.8)
 	player_dead.emit()
 
-func _player_dead():
-	pass
+func kill_player():
+	animation.modulate = Color(155.0, 0.0, 0.0, 1.0)
+	_dead = true
+	animation.stop()
+	await get_tree().create_timer(0.5).timeout
+	player_dead.emit()
 
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).

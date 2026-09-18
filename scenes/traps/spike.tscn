@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ppg0tesepk60"]
+
+[ext_resource type="PackedScene" uid="uid://crg4e2jvv7juh" path="res://scenes/trap_base/trap_base.tscn" id="1_w8xo7"]
+[ext_resource type="Texture2D" uid="uid://cr3ku4f7ovxms" path="res://assets/Traps/Spikes/Idle.png" id="2_7ccwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6pyl"]
+size = Vector2(8, 7.75)
+
+[node name="Spike" unique_id=1304619005 instance=ExtResource("1_w8xo7")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1278389922]
+scale = Vector2(2.3125, 2)
+texture = ExtResource("2_7ccwm")
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1356072890]
+position = Vector2(0, 0.25)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_h6pyl")

@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://bc2brlnv55wyi"]
 
 [ext_resource type="Texture2D" uid="uid://b542ar1bfhd84" path="res://assets/Terrain/Terrain (16x16).png" id="1_5jwvq"]
-[ext_resource type="Texture2D" uid="uid://cr3ku4f7ovxms" path="res://assets/Traps/Spikes/Idle.png" id="2_o45ys"]
+[ext_resource type="PackedScene" uid="uid://ppg0tesepk60" path="res://scenes/traps/spike.tscn" id="2_o45ys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igcjm"]
 texture = ExtResource("1_5jwvq")
@@ -234,11 +234,8 @@ texture = ExtResource("1_5jwvq")
 19:10/0 = 0
 20:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_350j4"]
-texture = ExtResource("2_o45ys")
-0:0/0 = 0
-0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 8, -5, 1, -4, 1, -1, 8)
-0:0/0/physics_layer_1/polygon_1/points = PackedVector2Array(0, 8, 3, 1, 4, 1, 7, 8)
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_350j4"]
+scenes/1/scene = ExtResource("2_o45ys")
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -250,4 +247,4 @@ custom_data_layer_0/type = 3
 custom_data_layer_1/name = "floor_friction"
 custom_data_layer_1/type = 3
 sources/0 = SubResource("TileSetAtlasSource_igcjm")
-sources/1 = SubResource("TileSetAtlasSource_350j4")
+sources/2 = SubResource("TileSetScenesCollectionSource_350j4")
