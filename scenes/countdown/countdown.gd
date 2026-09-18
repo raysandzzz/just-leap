@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var label: Label = $Control/Label
 
-@export var init_time: float = 30.0
+@export var init_time: float = 15.0
 
 var time_left: float = 0.0
 var time_speed: float = 1.0
@@ -11,9 +11,22 @@ var paused: bool = false
 
 func _ready():
 	time_left = init_time
+	time_speed = 1.0
+	twinkle_counter = 0.0
+	paused = false
+	label.modulate = Color.WHITE
+	Events.is_flag_active = false
+	
 	_update_text()
-	Events.flag_activate.connect(_activate_fast_mode)
-	Events.trophy_activate.connect(pause_timer)
+	
+	if not Events.flag_activate.is_connected(_activate_fast_mode):
+		Events.flag_activate.connect(_activate_fast_mode)
+	if not Events.trophy_activate.is_connected(pause_timer):
+		Events.trophy_activate.connect(pause_timer)
+	
+	# Start counting only if the transition is finished
+	if not Transition.transition_finished.is_connected(play_timer):
+		Transition.transition_finished.connect(play_timer, CONNECT_ONE_SHOT)
 
 func _process(delta: float):
 	if paused:

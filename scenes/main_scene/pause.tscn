@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vpfffnyf05wh"]
+
+[ext_resource type="Script" uid="uid://rkhybbhb8u0x" path="res://pause.gd" id="1_ejmu6"]
+
+[node name="Pause" type="Node" unique_id=1183054939]
+script = ExtResource("1_ejmu6")

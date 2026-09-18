@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_dead
+
 @export var animation: AnimatedSprite2D
 
 const MAX_JUMPS: int = 1
@@ -14,6 +16,7 @@ var _current_slide_speed: float = 80.0  # Default value
 var _controls_locked: bool = false
 
 func _ready() -> void:
+	add_to_group("players")
 	Events.trophy_activate.connect(_on_level_finished)
 	Events.time_over.connect(_time_over)
 
@@ -104,12 +107,21 @@ func _on_level_finished() -> void:
 	animation.pause()
 	await get_tree().create_timer(2.0).timeout
 	animation.play("Vanish")
+	await animation.animation_finished
 	await Transition.close_circle(0.8)
+	Events.level_finished.emit()
 
-func _time_over():
+func _time_over() -> void:
 	_controls_locked = true
 	velocity.x = 0
 	animation.play("Explosion")
+	await animation.animation_finished
+	await Transition.close_circle(0.8)
+	player_dead.emit()
+
+func _player_dead():
+	pass
+
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():
