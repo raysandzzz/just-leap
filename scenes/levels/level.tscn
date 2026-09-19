@@ -17,7 +17,7 @@ z_index = 1
 [node name="Player" parent="." unique_id=182577052 instance=ExtResource("1_mbbpy")]
 
 [node name="Hazards" type="Node2D" parent="." unique_id=250187703]
-visible = false
+position = Vector2(-546, -3)
 
 [node name="Saw" parent="Hazards" unique_id=1304619005 instance=ExtResource("2_ouxo3")]
 
@@ -25,7 +25,7 @@ visible = false
 position = Vector2(49, -1)
 
 [node name="Interactable" type="Node2D" parent="." unique_id=1062227603]
-visible = false
+position = Vector2(-545, 44)
 
 [node name="Trampoline" parent="Interactable" unique_id=1576701210 instance=ExtResource("4_rmjfq")]
 
@@ -33,7 +33,7 @@ visible = false
 position = Vector2(38, 7)
 
 [node name="Goal" type="Node2D" parent="." unique_id=301481826]
-visible = false
+position = Vector2(-546, -75)
 
 [node name="Trophy" parent="Goal" unique_id=1306856223 instance=ExtResource("6_xfk5q")]
 

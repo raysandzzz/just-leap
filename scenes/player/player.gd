@@ -25,7 +25,13 @@ func _ready() -> void:
 	Transition.transition_finished.connect(_play_appear_sequence, CONNECT_ONE_SHOT)
 	add_to_group("players")
 	Events.trophy_activate.connect(_on_level_finished)
+	
+	# Time_over signal connected to _time_over function, that's it XD
 	Events.time_over.connect(_time_over)
+	
+	# If the dialogue started, lock controls, else return
+	Events.dialogue_started.connect(lock_movement)
+	Events.dialogue_finished.connect(unlock_movement)
 
 func _physics_process(delta: float):
 	# Get the directional input (-1, 1)
@@ -146,6 +152,13 @@ func _play_appear_sequence() -> void:
 func bounce(force: float):
 	# Override vertical velocity directly to cancel fall momentum
 	velocity.y = -force
+
+func lock_movement():
+	_controls_locked = true
+	animation.play("Idle")
+
+func unlock_movement():
+	_controls_locked = false
 
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():

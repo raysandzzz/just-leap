@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var label: Label = $Control/Label
 
-@export var init_time: float = 15.0
+@export var init_time: float = 30.0
 
 var time_left: float = 0.0
 var time_speed: float = 1.0
@@ -25,6 +25,11 @@ func _ready():
 		Events.trophy_activate.connect(pause_timer)
 	if not Events.player_killed.is_connected(_on_player_killed):
 		Events.player_killed.connect(_on_player_killed)
+	
+	if not Events.dialogue_started.is_connected(_on_dialogue):
+		Events.dialogue_started.connect(_on_dialogue)
+	if not Events.dialogue_finished.is_connected(play_timer):
+		Events.dialogue_finished.connect(play_timer)
 	
 	# Start counting only if the transition and spawn is finished
 	_connect_player_spawn()
@@ -74,6 +79,7 @@ func _time_over():
 	time_left = 0.0
 	paused = true
 	Events.time_over.emit()
+	Events.player_killed.emit()
 
 func pause_timer() -> void: # Pause timer after pressed trophy
 	paused = true
@@ -83,5 +89,10 @@ func _on_player_killed() -> void: # Pause timer after player get killed
 	paused = true
 	label.modulate = Color.RED # Shows red instead of gold
 
+func _on_dialogue() -> void:
+	paused = true
+	label.modulate = Color("72a11d")
+
 func play_timer() -> void:
 	paused = false
+	label.modulate = Color.WHITE
