@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bqbgd1nr2kbv1"
-path="res://.godot/imported/pixel_font_determination.ttf-05ba2a7ea8dc52804f980eeba1de6321.fontdata"
+uid="uid://cv2jxusjwh4jl"
+path="res://.godot/imported/PixeltypeTest.ttf-c481c74ce4f3c22d3420cbf128fd57a4.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/pixel_font_determination.ttf"
-dest_files=["res://.godot/imported/pixel_font_determination.ttf-05ba2a7ea8dc52804f980eeba1de6321.fontdata"]
+source_file="res://assets/Fonts/PixeltypeTest.ttf"
+dest_files=["res://.godot/imported/PixeltypeTest.ttf-c481c74ce4f3c22d3420cbf128fd57a4.fontdata"]
 
 [params]
 
@@ -22,8 +22,8 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=0
-subpixel_positioning=0
+hinting=3
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

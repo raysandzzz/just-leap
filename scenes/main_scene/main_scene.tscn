@@ -12,7 +12,7 @@ scenes = Array[PackedScene]([ExtResource("2_kbdpr"), ExtResource("3_6loks")])
 
 [node name="Camera2D" parent="." unique_id=2032031119 instance=ExtResource("2_34m6u")]
 position = Vector2(0, 8)
-zoom = Vector2(1.015, 0.955)
+zoom = Vector2(1, 1)
 
 [node name="Pause" parent="." unique_id=1183054939 instance=ExtResource("2_symxd")]
 process_mode = 3

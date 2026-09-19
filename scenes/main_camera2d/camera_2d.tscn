@@ -1,5 +1,3 @@
 [gd_scene format=3 uid="uid://bvvxdeb7pv7i3"]
 
 [node name="Camera2D" type="Camera2D" unique_id=2032031119]
-offset = Vector2(0, 10)
-zoom = Vector2(1.02, 0.955)
