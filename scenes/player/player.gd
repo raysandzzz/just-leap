@@ -5,16 +5,18 @@ signal player_dead
 @export var animation: AnimatedSprite2D
 
 const MAX_JUMPS: int = 1
-const DEFAULT_SPEED: float = 150.0
+const DEFAULT_SPEED: float = 125.0
 
 var _speed: float = DEFAULT_SPEED
 var _current_floor_speed: float = DEFAULT_SPEED
-var _jump_speed: float = -300.0
+var _jump_speed: float = -270.0
 var _jumps_left: int = MAX_JUMPS
 var _can_wall_jump: bool = true
 var _current_slide_speed: float = 80.0  # Default value
 var _controls_locked: bool = false
 var _dead: bool = false
+var _is_wall_unclimbable: bool = false
+var _has_left_wall: bool = true
 
 func _ready() -> void:
 	# Keep player still while spawning
@@ -58,7 +60,7 @@ func _physics_process(delta: float):
 	var normalized = get_wall_normal()
 	
 	# A verif var to create a 'friction' feeling while climbing
-	var is_pressing_against_wall = is_on_wall() && (input_dir * normalized.x) < 0
+	var is_pressing_against_wall = is_on_wall() && (input_dir * normalized.x) < 0 && not _is_wall_unclimbable
 	
 	_custom_friction()
 	
@@ -95,21 +97,26 @@ func _horizontal_movement():
 		velocity.x = 0
 
 func _doublewall_jump():
-		if is_on_floor():
-			_jumps_left = MAX_JUMPS
-			_can_wall_jump = true
-		elif is_on_wall():
-			if _can_wall_jump:
-				_jumps_left = 1
-		else:
-			_can_wall_jump = true
+	if is_on_floor():
+		_jumps_left = MAX_JUMPS
+		_can_wall_jump = true
+		_has_left_wall = true
+	elif is_on_wall():
+		# Only grant wall jump if the player has detached from the wall first
+		if _can_wall_jump and _has_left_wall and not _is_wall_unclimbable:
+			_jumps_left = 1
+	else:
+		# Player is airborne and away from the wall; re-enable wall attachment
+		_has_left_wall = true
 
 func _regular_jump():
 	if Input.is_action_just_pressed("jump") and _jumps_left > 0:
 		velocity.y = _jump_speed
 		_jumps_left -= 1
+		
 		if is_on_wall():
-			_can_wall_jump = false
+			# Lock wall jump refills until the player detaches in the air
+			_has_left_wall = false
 		elif not is_on_floor():
 			animation.play("DoubleJump")
 
@@ -163,6 +170,7 @@ func unlock_movement():
 # A function to get how "frictional" (XD) is a specific tile (wall or floor).
 func _custom_friction():
 	_current_floor_speed = _speed # Speed reset
+	_is_wall_unclimbable = false # Reset
 	
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -179,7 +187,11 @@ func _custom_friction():
 					var wall_friction = tile_data.get_custom_data("friction")
 					if wall_friction != null:
 						_current_slide_speed = wall_friction
-				
+					# Detect if wall is climbable.
+					var unclimbable = tile_data.get_custom_data("unclimbable")
+					if unclimbable != null and unclimbable == true:
+						_is_wall_unclimbable = true
+					
 				# FLOOR FRICTION (read the custom data layer from the floor)
 				if is_on_floor() and collision.get_normal().y < -0.5:
 					var floor_friction = tile_data.get_custom_data("floor_friction")

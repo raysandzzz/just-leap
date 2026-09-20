@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2ye21lx4nvqp"]
+
+[ext_resource type="TileSet" uid="uid://by3j7l4rflalt" path="res://tile_sets/rotated_tiles.tres" id="1_htq28"]
+
+[node name="RotatedTiles" type="Node2D" unique_id=225923780]
+rotation = 0.7853982
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=58833579]
+tile_set = ExtResource("1_htq28")

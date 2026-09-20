@@ -1,11 +1,53 @@
 [gd_scene format=3 uid="uid://b4cwnwf6oirjl"]
 
-[ext_resource type="Texture2D" uid="uid://dik4ri8ulab6" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="1_38sld"]
-[ext_resource type="Texture2D" uid="uid://dqp0um6mv4i10" path="res://assets/Items/Checkpoints/End/End (Pressed) (64x64).png" id="2_mkj6r"]
+[ext_resource type="Texture2D" uid="uid://dik4ri8ulab6" path="res://assets/Items/Checkpoints/End/Idle(Active).png" id="1_38sld"]
+[ext_resource type="Texture2D" uid="uid://dqp0um6mv4i10" path="res://assets/Items/Checkpoints/End/Pressed.png" id="2_mkj6r"]
+[ext_resource type="Texture2D" uid="uid://drkqcquprhooy" path="res://assets/Items/Checkpoints/End/FlagDetected.png" id="2_vvht2"]
+[ext_resource type="Texture2D" uid="uid://bjme348p0sbyr" path="res://assets/Items/Checkpoints/End/Idle(NoFlag).png" id="3_jvvik"]
 [ext_resource type="Script" uid="uid://ckv0bi1y541vf" path="res://scenes/trophy/trophy.gd" id="3_mkj6r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvht2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf2m8"]
 atlas = ExtResource("1_38sld")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbr7n"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxxry"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njq2w"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd8f8"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5s0m"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tj7g"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1uqp"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1s8p"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq7k4"]
+atlas = ExtResource("2_vvht2")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jahx8"]
+atlas = ExtResource("3_jvvik")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvvik"]
@@ -44,7 +86,47 @@ region = Rect2(448, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vvht2")
+"texture": SubResource("AtlasTexture_vf2m8")
+}],
+"loop": 0,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbr7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxxry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njq2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd8f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5s0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tj7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1uqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1s8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq7k4")
+}],
+"loop": 0,
+"name": &"FlagDetected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jahx8")
 }],
 "loop": 0,
 "name": &"Idle",
@@ -94,14 +176,13 @@ b = Vector2(6.478901, 0)
 size = Vector2(22.574131, 90.63321)
 
 [node name="Trophy" type="Node2D" unique_id=1306856223]
-scale = Vector2(0.83640033, 0.83640033)
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=601336054]
 sprite_frames = SubResource("SpriteFrames_8w0r3")
-animation = &"Pressed"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 9
-frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1830447336 node_paths=PackedStringArray("animation")]
 scale = Vector2(1.168089, 0.61740845)

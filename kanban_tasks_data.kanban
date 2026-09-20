@@ -1,0 +1,237 @@
+{
+	"categories": [
+		{
+			"uuid": "152da342-9b3b-41b8-abea-8c800896961e",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "c4866d47-aa45-4c11-89b0-f32feb950768",
+			"title": "Todo",
+			"tasks": [
+				"efb6086f-3901-4e85-a6a4-b9b9081b467e",
+				"25e024c9-031f-40fb-9a43-b7120a8a2b77",
+				"a6a3e2fb-5867-4726-81c6-9763f5488c95",
+				"a8f0b8d6-5f41-4289-b1e9-458ee807c4fc",
+				"03df8ee0-b92f-4578-ac3e-f470953b719f"
+			]
+		},
+		{
+			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
+			"title": "Doing",
+			"tasks": [
+				"c9f0388d-9e87-4375-8fbc-ce310d5e6bfd"
+			]
+		},
+		{
+			"uuid": "b9fd6e0b-7c66-4d0c-8599-6b2140a09944",
+			"title": "Done",
+			"tasks": [
+				"ef12c1cf-dabc-467f-9d6c-08e4822c5e41",
+				"93f9c1a3-ef7b-41b2-a519-1b032143ec3f",
+				"6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e",
+				"91d6c45a-982a-4ba9-9b4f-36169f5ec7d1",
+				"8a6df69b-9def-4399-9264-6078bc873ba3",
+				"d692b65d-ce1d-47c2-8392-dd120d94cb12",
+				"89f51944-c748-4ead-8dd1-d754445412d9",
+				"32e591cc-1abe-4f7d-9fbb-d05878e139af",
+				"6d4ab407-351e-41c1-bbcb-d3b824dcec36",
+				"73786890-5bc0-44ac-8c14-563a87501301",
+				"d82c83ca-9fd1-41bf-8edd-ad7a4b509f6c",
+				"dbac24ce-a71a-4e10-a8a7-c7ec111ea90d",
+				"1548b869-ac66-4a67-a162-54605d5ac8de",
+				"920ed9c7-3932-4479-a949-2b7ea4c19bec"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "73786890-5bc0-44ac-8c14-563a87501301",
+			"title": "Code the trophy to win the level after activate flag",
+			"description": "With the respective congratulations screen, a cool one, but this one could be added later, so take it chill",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "6d9b1ee3-82bf-44ce-ab51-c7fca6aff38e",
+			"title": "Player mechanics",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "8a6df69b-9def-4399-9264-6078bc873ba3",
+			"title": "Include the trophy sprite with its animations",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "93f9c1a3-ef7b-41b2-a519-1b032143ec3f",
+			"title": "A texture for some terrain tiles to generate a friction",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "d692b65d-ce1d-47c2-8392-dd120d94cb12",
+			"title": "Make a stopwatch which gets faster when flag is act",
+			"description": "Maybe change the color and expand the timer for desesperation feeling XD",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "91d6c45a-982a-4ba9-9b4f-36169f5ec7d1",
+			"title": "Include the flag",
+			"description": "Include the flag sprite with its respective animations. And code it so when the player interact (walk around) the animation change and flag is now active.",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "a8f0b8d6-5f41-4289-b1e9-458ee807c4fc",
+			"title": "Add a background music, maybe at the end",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "1665f015-481a-445a-948b-8314b0bd718b",
+			"title": "",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "6d4ab407-351e-41c1-bbcb-d3b824dcec36",
+			"title": "Add an explosion animation in the player",
+			"description": "(when player ran out of time)",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "d82c83ca-9fd1-41bf-8edd-ad7a4b509f6c",
+			"title": "A transition between levels",
+			"description": "the same transition if level is starting or if it is finished, but reverse",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "ef12c1cf-dabc-467f-9d6c-08e4822c5e41",
+			"title": "a lot of things that i want to implement at moment",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "dbac24ce-a71a-4e10-a8a7-c7ec111ea90d",
+			"title": "add more traps",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "c9f0388d-9e87-4375-8fbc-ce310d5e6bfd",
+			"title": "design all levels (1-10)",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": [
+				{
+					"details": "design level2 pa",
+					"done": false
+				},
+				{
+					"details": "add spikes",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "efb6086f-3901-4e85-a6a4-b9b9081b467e",
+			"title": "design a simple menu",
+			"description": "only 2 options: play, exit, and maybe fullscreen on the corner, with level 1 like background",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "32e591cc-1abe-4f7d-9fbb-d05878e139af",
+			"title": "add a little tutorial at level 1",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "25e024c9-031f-40fb-9a43-b7120a8a2b77",
+			"title": "add credits at the end",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "a6a3e2fb-5867-4726-81c6-9763f5488c95",
+			"title": "add music, SFX, SOUND basically",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "03df8ee0-b92f-4578-ac3e-f470953b719f",
+			"title": "publish on github to have a record :)",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "920ed9c7-3932-4479-a949-2b7ea4c19bec",
+			"title": "add a trampoline",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "1548b869-ac66-4a67-a162-54605d5ac8de",
+			"title": "add a elevator",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "89f51944-c748-4ead-8dd1-d754445412d9",
+			"title": "design level 1",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": [
+				{
+					"details": "a simple level",
+					"done": true
+				},
+				{
+					"details": "without traps",
+					"done": true
+				},
+				{
+					"details": "without interactable",
+					"done": true
+				},
+				{
+					"details": "just run, leap, before timer hits zero",
+					"done": true
+				}
+			]
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"c4866d47-aa45-4c11-89b0-f32feb950768"
+			],
+			[
+				"cc58771e-677e-482a-bbaa-3c3cf00cf117"
+			],
+			[
+				"b9fd6e0b-7c66-4d0c-8599-6b2140a09944"
+			]
+		]
+	}
+}

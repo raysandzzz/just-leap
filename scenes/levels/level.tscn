@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dc661ar64ufav"]
 
+[ext_resource type="PackedScene" uid="uid://d2ye21lx4nvqp" path="res://scenes/rotated_tiles/rotated_tiles.tscn" id="1_icy5c"]
 [ext_resource type="PackedScene" uid="uid://m5va2tic77hf" path="res://scenes/player/player.tscn" id="1_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://d0ofuekn75b0p" path="res://scenes/countdown/countdown.tscn" id="1_ouxo3"]
-[ext_resource type="PackedScene" uid="uid://dmctd7oswp72" path="res://scenes/traps/saw.tscn" id="2_ouxo3"]
-[ext_resource type="PackedScene" uid="uid://ppg0tesepk60" path="res://scenes/traps/spike.tscn" id="3_icy5c"]
 [ext_resource type="PackedScene" uid="uid://b7ticj2ag1fjw" path="res://scenes/trampoline/trampoline.tscn" id="4_rmjfq"]
 [ext_resource type="PackedScene" uid="uid://co4g7usx4qjsm" path="res://scenes/elevator/elevator.tscn" id="5_7pb6i"]
 [ext_resource type="PackedScene" uid="uid://b4cwnwf6oirjl" path="res://scenes/trophy/trophy.tscn" id="6_xfk5q"]
@@ -12,20 +11,15 @@
 [node name="Level" type="Node2D" unique_id=52509437]
 z_index = 1
 
+[node name="RotatedTiles" parent="." unique_id=225923780 instance=ExtResource("1_icy5c")]
+
 [node name="Countdown" parent="." unique_id=85377098 instance=ExtResource("1_ouxo3")]
 
 [node name="Player" parent="." unique_id=182577052 instance=ExtResource("1_mbbpy")]
-
-[node name="Hazards" type="Node2D" parent="." unique_id=250187703]
-position = Vector2(-546, -3)
-
-[node name="Saw" parent="Hazards" unique_id=1304619005 instance=ExtResource("2_ouxo3")]
-
-[node name="Spike" parent="Hazards" unique_id=818785375 instance=ExtResource("3_icy5c")]
-position = Vector2(49, -1)
+position = Vector2(27, -26)
 
 [node name="Interactable" type="Node2D" parent="." unique_id=1062227603]
-position = Vector2(-545, 44)
+position = Vector2(-427, 45)
 
 [node name="Trampoline" parent="Interactable" unique_id=1576701210 instance=ExtResource("4_rmjfq")]
 
@@ -33,7 +27,7 @@ position = Vector2(-545, 44)
 position = Vector2(38, 7)
 
 [node name="Goal" type="Node2D" parent="." unique_id=301481826]
-position = Vector2(-546, -75)
+position = Vector2(-428, -74)
 
 [node name="Trophy" parent="Goal" unique_id=1306856223 instance=ExtResource("6_xfk5q")]
 
