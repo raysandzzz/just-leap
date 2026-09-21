@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://6kg60xwskn2p"]
 
 [ext_resource type="Script" uid="uid://dyyxs3mywguni" path="res://scenes/main_scene/main_scene.gd" id="1_o5t4i"]
-[ext_resource type="PackedScene" uid="uid://b8t5hgwsqubuv" path="res://scenes/levels/level_3.tscn" id="2_2cqfw"]
+[ext_resource type="PackedScene" uid="uid://kg58osvmp68c" path="res://scenes/levels/level_0.tscn" id="2_3t4qf"]
 [ext_resource type="PackedScene" uid="uid://bvvxdeb7pv7i3" path="res://scenes/main_camera2d/camera_2d.tscn" id="2_34m6u"]
-[ext_resource type="PackedScene" uid="uid://kg58osvmp68c" path="res://scenes/levels/level_0.tscn" id="2_kbdpr"]
 [ext_resource type="PackedScene" uid="uid://dmqxma45rrk3w" path="res://scenes/levels/level_6.tscn" id="2_s5p1y"]
 [ext_resource type="PackedScene" uid="uid://vpfffnyf05wh" path="res://scenes/main_scene/pause.tscn" id="2_symxd"]
-[ext_resource type="PackedScene" uid="uid://dq87sbmg85eoi" path="res://scenes/levels/level_1.tscn" id="3_6loks"]
-[ext_resource type="PackedScene" uid="uid://l4malmfobsg" path="res://scenes/levels/level_2.tscn" id="4_kbdpr"]
-[ext_resource type="PackedScene" uid="uid://24m8bfmh4s0s" path="res://scenes/levels/level_4.tscn" id="6_6ycpv"]
-[ext_resource type="PackedScene" uid="uid://btnh2hx0ukjpr" path="res://scenes/levels/level_5.tscn" id="7_umvci"]
+[ext_resource type="PackedScene" uid="uid://dq87sbmg85eoi" path="res://scenes/levels/level_1.tscn" id="3_ugojt"]
+[ext_resource type="PackedScene" uid="uid://l4malmfobsg" path="res://scenes/levels/level_2.tscn" id="4_f6yoc"]
+[ext_resource type="PackedScene" uid="uid://b8t5hgwsqubuv" path="res://scenes/levels/level_3.tscn" id="5_nim2u"]
+[ext_resource type="PackedScene" uid="uid://24m8bfmh4s0s" path="res://scenes/levels/level_4.tscn" id="6_sro07"]
+[ext_resource type="PackedScene" uid="uid://btnh2hx0ukjpr" path="res://scenes/levels/level_5.tscn" id="7_3naof"]
+[ext_resource type="PackedScene" uid="uid://d27if8rksvvwx" path="res://scenes/levels/level_7.tscn" id="9_17klg"]
 
 [node name="MainScene" type="Node2D" unique_id=348107646]
 script = ExtResource("1_o5t4i")
-scenes = Array[PackedScene]([ExtResource("2_s5p1y"), ExtResource("2_kbdpr"), ExtResource("3_6loks"), ExtResource("4_kbdpr"), ExtResource("2_2cqfw"), ExtResource("6_6ycpv"), ExtResource("7_umvci")])
+scenes = Array[PackedScene]([ExtResource("2_3t4qf"), ExtResource("3_ugojt"), ExtResource("4_f6yoc"), ExtResource("5_nim2u"), ExtResource("6_sro07"), ExtResource("7_3naof"), ExtResource("2_s5p1y"), ExtResource("9_17klg")])
 
 [node name="Camera2D" parent="." unique_id=2032031119 instance=ExtResource("2_34m6u")]
 position = Vector2(0, 8)
