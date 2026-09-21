@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://by3j7l4rflalt" path="res://tile_sets/rotated_tiles.tres" id="1_htq28"]
 
 [node name="RotatedTiles" type="Node2D" unique_id=225923780]
+z_index = -1
+texture_filter = 1
 rotation = 0.7853982
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=58833579]

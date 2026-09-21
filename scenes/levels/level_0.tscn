@@ -19,6 +19,12 @@ position = Vector2(-265, 71)
 visible = false
 position = Vector2(-543, 45)
 
+[node name="Trampoline" parent="Interactable" index="0" unique_id=1576701210]
+visible = false
+
+[node name="Elevator" parent="Interactable" index="1" unique_id=61039481]
+visible = false
+
 [node name="Goal" parent="." index="6" unique_id=301481826]
 position = Vector2(-492, -262)
 

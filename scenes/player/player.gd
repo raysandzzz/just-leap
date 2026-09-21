@@ -17,6 +17,7 @@ var _controls_locked: bool = false
 var _dead: bool = false
 var _is_wall_unclimbable: bool = false
 var _has_left_wall: bool = true
+var _is_bouncing_x: bool = false
 
 func _ready() -> void:
 	# Keep player still while spawning
@@ -86,9 +87,11 @@ func _physics_process(delta: float):
 	else:
 		animation.play("Idle")
 
+
 func _horizontal_movement():
+	# Direct digital movement without inertia or momentum preservation
 	if Input.is_action_pressed("left"):
-		velocity.x = -(_current_floor_speed)
+		velocity.x = -_current_floor_speed
 		animation.flip_h = true
 	elif Input.is_action_pressed("right"):
 		velocity.x = _current_floor_speed
@@ -156,9 +159,14 @@ func _play_appear_sequence() -> void:
 	_controls_locked = false
 	Events.spawn_finished.emit()
 
+# This function connect the trampoline script with player
+# And this way we can give the player an extra jump when he bounces haha
 func bounce(force: float):
 	# Override vertical velocity directly to cancel fall momentum
 	velocity.y = -force
+	# Reset the jump and play an expected animation in this kind of mechanic :)
+	_jumps_left = 1
+	animation.play("Fall")
 
 func lock_movement():
 	_controls_locked = true

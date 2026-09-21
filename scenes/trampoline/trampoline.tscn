@@ -80,8 +80,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_frff1"]
-b = Vector2(0.017465591, 20.999992)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2ex2a"]
+a = Vector2(-0.0021267198, -0.4822011)
+b = Vector2(0.046787735, 10.608416)
 
 [node name="Trampoline" type="Area2D" unique_id=1576701210]
 collision_layer = 8
@@ -89,12 +90,15 @@ collision_mask = 4
 script = ExtResource("1_2ex2a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1733947040]
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_8w0r3")
 animation = &"Jump"
 frame = 7
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1085761921]
-position = Vector2(-11, -2.3841858e-07)
-rotation = -1.5699646
-shape = SubResource("SegmentShape2D_frff1")
+position = Vector2(-10.999999, -1.024455e-08)
+rotation = -1.5707474
+scale = Vector2(6.6494536, 2.074031)
+skew = 0.014091611
+shape = SubResource("SegmentShape2D_2ex2a")

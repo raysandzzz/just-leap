@@ -22,6 +22,7 @@
 			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
 			"title": "Doing",
 			"tasks": [
+				"67a79b2d-213b-4147-9373-73352c5f6ee8",
 				"c9f0388d-9e87-4375-8fbc-ce310d5e6bfd"
 			]
 		},
@@ -139,11 +140,15 @@
 			"steps": [
 				{
 					"details": "design level2 pa",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "add spikes",
-					"done": false
+					"done": true
+				},
+				{
+					"details": "add level 3",
+					"done": true
 				}
 			]
 		},
@@ -219,6 +224,13 @@
 					"done": true
 				}
 			]
+		},
+		{
+			"uuid": "67a79b2d-213b-4147-9373-73352c5f6ee8",
+			"title": "level 5",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
 		}
 	],
 	"layout": {
