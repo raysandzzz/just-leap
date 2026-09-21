@@ -4,14 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://b8t5hgwsqubuv" path="res://scenes/levels/level_3.tscn" id="2_2cqfw"]
 [ext_resource type="PackedScene" uid="uid://bvvxdeb7pv7i3" path="res://scenes/main_camera2d/camera_2d.tscn" id="2_34m6u"]
 [ext_resource type="PackedScene" uid="uid://kg58osvmp68c" path="res://scenes/levels/level_0.tscn" id="2_kbdpr"]
+[ext_resource type="PackedScene" uid="uid://dmqxma45rrk3w" path="res://scenes/levels/level_6.tscn" id="2_s5p1y"]
 [ext_resource type="PackedScene" uid="uid://vpfffnyf05wh" path="res://scenes/main_scene/pause.tscn" id="2_symxd"]
 [ext_resource type="PackedScene" uid="uid://dq87sbmg85eoi" path="res://scenes/levels/level_1.tscn" id="3_6loks"]
 [ext_resource type="PackedScene" uid="uid://l4malmfobsg" path="res://scenes/levels/level_2.tscn" id="4_kbdpr"]
 [ext_resource type="PackedScene" uid="uid://24m8bfmh4s0s" path="res://scenes/levels/level_4.tscn" id="6_6ycpv"]
+[ext_resource type="PackedScene" uid="uid://btnh2hx0ukjpr" path="res://scenes/levels/level_5.tscn" id="7_umvci"]
 
 [node name="MainScene" type="Node2D" unique_id=348107646]
 script = ExtResource("1_o5t4i")
-scenes = Array[PackedScene]([ExtResource("2_kbdpr"), ExtResource("3_6loks"), ExtResource("4_kbdpr"), ExtResource("2_2cqfw"), ExtResource("6_6ycpv")])
+scenes = Array[PackedScene]([ExtResource("2_s5p1y"), ExtResource("2_kbdpr"), ExtResource("3_6loks"), ExtResource("4_kbdpr"), ExtResource("2_2cqfw"), ExtResource("6_6ycpv"), ExtResource("7_umvci")])
 
 [node name="Camera2D" parent="." unique_id=2032031119 instance=ExtResource("2_34m6u")]
 position = Vector2(0, 8)
