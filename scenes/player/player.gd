@@ -150,7 +150,7 @@ func kill_player():
 	_dead = true
 	animation.stop()
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 	player_dead.emit()
 
 func _play_appear_sequence() -> void:
