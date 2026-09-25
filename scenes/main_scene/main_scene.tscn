@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kg58osvmp68c" path="res://scenes/levels/level_0.tscn" id="2_3t4qf"]
 [ext_resource type="PackedScene" uid="uid://bvvxdeb7pv7i3" path="res://scenes/main_camera2d/camera_2d.tscn" id="2_34m6u"]
 [ext_resource type="PackedScene" uid="uid://bt68iv0ei1arl" path="res://scenes/levels/level_9.tscn" id="2_f6yoc"]
+[ext_resource type="PackedScene" uid="uid://dpldgdrryo1h1" path="res://scenes/levels/last_level.tscn" id="2_nim2u"]
 [ext_resource type="PackedScene" uid="uid://dmqxma45rrk3w" path="res://scenes/levels/level_6.tscn" id="2_s5p1y"]
 [ext_resource type="PackedScene" uid="uid://vpfffnyf05wh" path="res://scenes/main_scene/pause.tscn" id="2_symxd"]
 [ext_resource type="PackedScene" uid="uid://dq87sbmg85eoi" path="res://scenes/levels/level_1.tscn" id="3_ugojt"]
@@ -16,7 +17,7 @@
 
 [node name="MainScene" type="Node2D" unique_id=348107646]
 script = ExtResource("1_o5t4i")
-scenes = Array[PackedScene]([ExtResource("2_3t4qf"), ExtResource("3_ugojt"), ExtResource("4_f6yoc"), ExtResource("5_nim2u"), ExtResource("6_sro07"), ExtResource("7_3naof"), ExtResource("2_s5p1y"), ExtResource("9_17klg"), ExtResource("10_ugojt"), ExtResource("2_f6yoc")])
+scenes = Array[PackedScene]([ExtResource("2_nim2u"), ExtResource("2_3t4qf"), ExtResource("3_ugojt"), ExtResource("4_f6yoc"), ExtResource("5_nim2u"), ExtResource("6_sro07"), ExtResource("7_3naof"), ExtResource("2_s5p1y"), ExtResource("9_17klg"), ExtResource("10_ugojt"), ExtResource("2_f6yoc")])
 
 [node name="Camera2D" parent="." unique_id=2032031119 instance=ExtResource("2_34m6u")]
 position = Vector2(0, 8)
