@@ -18,7 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_sarjk")
-dialogue_lines = Array[String](["Hey, welcome to my first game in Godot :)", "Rules are simple...", "Hit the flag, then step on the trophy", "The trophy stays locked until the flag is active!", "See that timer up there? ", "It speeds up once you grab the flag.", "If it hits zero, it's game over... so watch your pace!", "10 levels ahead. Good luck!"])
+dialogue_lines = Array[String](["Hey, welcome to my first game in Godot :)", "Rules are simple...", "Hit the flag, then step on the trophy", "The trophy stays locked until the flag is active!", "See that timer up there? ", "It speeds up once you grab the flag.", "If it hits zero, it's game over... so watch your pace!", "Good luck!"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=997564478]
 sprite_frames = ExtResource("2_sarjk")
