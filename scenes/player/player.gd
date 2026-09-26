@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal player_dead
 
 @export var animation: AnimatedSprite2D
+@onready var camera: Camera2D = get_node_or_null("Camera2D")
 
 const MAX_JUMPS: int = 1
 const DEFAULT_SPEED: float = 125.0
@@ -20,6 +21,11 @@ var _has_left_wall: bool = true
 var _is_bouncing_x: bool = false
 
 func _ready() -> void:
+	# Force to use the inner Camera2D in player instance
+	# Only if it exists, else general Camera2D from MainScene will be used
+	if camera:
+		camera.make_current()
+	
 	# Keep player still while spawning
 	_controls_locked = true
 	velocity = Vector2.ZERO
@@ -150,7 +156,7 @@ func kill_player():
 	_dead = true
 	animation.stop()
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.4).timeout
 	player_dead.emit()
 
 func _play_appear_sequence() -> void:
