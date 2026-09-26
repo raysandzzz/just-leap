@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var scenes: Array[PackedScene]
+@onready var music: AudioStreamPlayer = $MusicPlayer
+@onready var music_2: AudioStreamPlayer = $MusicPlayer2
 
 var _current_scene: int = 1
 var _instanced_scene: Node
@@ -8,11 +10,15 @@ var _instanced_scene: Node
 func _ready() -> void:
 	Events.level_finished.connect(_next_level)
 	_create_scene(_current_scene)
+	if _current_scene >= 6:
+		music_2.play()
+	else:
+		music.play()
 
 func _create_scene(scene_number: int) -> void:
 	if scene_number < 1 or scene_number > scenes.size():
 		return
-
+	
 	_instanced_scene = scenes[scene_number - 1].instantiate()
 	add_child(_instanced_scene)
 	

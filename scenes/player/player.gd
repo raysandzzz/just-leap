@@ -3,7 +3,14 @@ extends CharacterBody2D
 signal player_dead
 
 @export var animation: AnimatedSprite2D
+
 @onready var camera: Camera2D = get_node_or_null("Camera2D")
+
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
+@onready var footsteps_sound: AudioStreamPlayer = $FootstepsSound
+@onready var dead_sound: AudioStreamPlayer = $DeadSound
+@onready var tele_sound: AudioStreamPlayer = $TeleportSound
+@onready var explosion_sound: AudioStreamPlayer = $ExplosionSound
 
 const MAX_JUMPS: int = 1
 const DEFAULT_SPEED: float = 125.0
@@ -19,6 +26,7 @@ var _dead: bool = false
 var _is_wall_unclimbable: bool = false
 var _has_left_wall: bool = true
 var _is_bouncing_x: bool = false
+var _is_stepping: bool = false
 
 func _ready() -> void:
 	# Force to use the inner Camera2D in player instance
@@ -52,6 +60,7 @@ func _physics_process(delta: float):
 	# Gravity
 	velocity += get_gravity() * delta
 	
+	
 	# Horizontal movement
 	_horizontal_movement()
 	
@@ -62,6 +71,8 @@ func _physics_process(delta: float):
 	_regular_jump()
 	
 	move_and_slide()
+	
+	_handle_footsteps_input()
 	
 	# Var 'normalized' to detect if the player is close to the wall
 	var normalized = get_wall_normal()
@@ -121,8 +132,8 @@ func _doublewall_jump():
 func _regular_jump():
 	if Input.is_action_just_pressed("jump") and _jumps_left > 0:
 		velocity.y = _jump_speed
+		jump_sound.play()
 		_jumps_left -= 1
-		
 		if is_on_wall():
 			# Lock wall jump refills until the player detaches in the air
 			_has_left_wall = false
@@ -136,6 +147,7 @@ func _on_level_finished() -> void:
 	animation.pause()
 	await get_tree().create_timer(2.0).timeout
 	animation.play("Vanish")
+	tele_sound.play()
 	await animation.animation_finished
 	await Transition.close_circle(0.8)
 	Events.level_finished.emit()
@@ -145,22 +157,25 @@ func _time_over() -> void:
 	_controls_locked = true
 	velocity.x = 0
 	animation.play("Explosion")
+	explosion_sound.play()
 	await animation.animation_finished
 	await Transition.close_circle(0.8)
 	player_dead.emit()
 
 func kill_player():
+	dead_sound.play()
 	Events.player_killed.emit()
 	
 	animation.modulate = Color(155.0, 0.0, 0.0, 1.0)
 	_dead = true
 	animation.stop()
 	
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.8).timeout
 	player_dead.emit()
 
 func _play_appear_sequence() -> void:
 	animation.play("Appear")
+	tele_sound.play()
 	await animation.animation_finished
 	_controls_locked = false
 	Events.spawn_finished.emit()
@@ -211,3 +226,26 @@ func _custom_friction():
 					var floor_friction = tile_data.get_custom_data("floor_friction")
 					if floor_friction != null and floor_friction > 0.0:
 						_current_floor_speed = floor_friction
+
+# All next 3 functions to manage the footsteps sfx correctly
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if animation.animation == "Run" and is_on_floor():
+		# Trigger only on the specific contact frames
+		if animation.frame == 3 or animation.frame == 9:
+			_play_footstep()
+
+func _handle_footsteps_input() -> void:
+	if is_on_floor() and abs(velocity.x) > 10.0:
+		if not _is_stepping:
+			# Play instant sound on first movement tap without waiting for animation frame
+			_is_stepping = true
+			_play_footstep()
+	else:
+		# Reset trigger when stationary or in the air
+		_is_stepping = false
+
+func _play_footstep() -> void:
+	# Random pitch variation to prevent audio fatigue
+	footsteps_sound.pitch_scale = randf_range(0.9, 1.1)
+	footsteps_sound.play()

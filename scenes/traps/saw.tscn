@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gmi36d341o0o" path="res://assets/Traps/Saw/Off.png" id="2_hd0mb"]
 [ext_resource type="Script" uid="uid://esoly17epgql" path="res://scenes/traps/saw.gd" id="2_mtqrd"]
 [ext_resource type="Texture2D" uid="uid://6c8a2s7rduqe" path="res://assets/Traps/Saw/On (38x38).png" id="3_mtqrd"]
+[ext_resource type="AudioStream" uid="uid://dauiq2as6pa3m" path="res://assets/Audio/SFX/saw_sfx.wav" id="5_mtqrd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w0r3"]
 
@@ -83,8 +84,9 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Saw" unique_id=1304619005 instance=ExtResource("1_maawh")]
+[node name="Saw" unique_id=1304619005 node_paths=PackedStringArray("saw_sound") instance=ExtResource("1_maawh")]
 script = ExtResource("2_mtqrd")
+saw_sound = NodePath("SawSFX")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1356072890]
 scale = Vector2(1.960002, 1.960002)
@@ -94,3 +96,7 @@ shape = SubResource("CircleShape2D_8w0r3")
 sprite_frames = SubResource("SpriteFrames_h4t55")
 animation = &"Off"
 autoplay = "Off"
+
+[node name="SawSFX" type="AudioStreamPlayer2D" parent="." index="3" unique_id=360716768]
+stream = ExtResource("5_mtqrd")
+bus = &"SFX"

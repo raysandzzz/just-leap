@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var saw_animation: AnimatedSprite2D = $AnimatedSprite2D
+@export var saw_sound: AudioStreamPlayer2D
 
 func _ready() -> void:
 	if not Events.spawn_finished.is_connected(_resume_animation):
@@ -14,6 +15,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("kill_player"):
 		body.kill_player()
+		saw_sound.play()
 
 func _stop_animation():
 	if saw_animation:

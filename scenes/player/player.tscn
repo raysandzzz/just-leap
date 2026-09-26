@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://df35ptyswvtlj" path="res://assets/Main Characters/Virtual Guy/Run (32x32).png" id="4_qek5x"]
 [ext_resource type="Texture2D" uid="uid://dg08u4661dmra" path="res://assets/Main Characters/Virtual Guy/Wall Jump (32x32).png" id="5_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://di5hr8jc6ltip" path="res://assets/Main Characters/Desappearing (96x96).png" id="5_je7p5"]
+[ext_resource type="AudioStream" uid="uid://bule0seqhffch" path="res://assets/Audio/SFX/jump.wav" id="10_ugbui"]
+[ext_resource type="AudioStream" uid="uid://bmi8yewgmr0ce" path="res://assets/Audio/SFX/teleport.wav" id="11_fcs02"]
+[ext_resource type="AudioStream" uid="uid://56q0680i1cbq" path="res://assets/Audio/SFX/footstep.wav" id="12_myrg7"]
+[ext_resource type="AudioStream" uid="uid://jajmlc2nqbeu" path="res://assets/Audio/SFX/hurt.wav" id="13_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://bhivsnrxybrsi" path="res://assets/Audio/SFX/explosion.wav" id="14_uf5tr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rw8a5"]
 atlas = ExtResource("2_5gtgg")
@@ -484,3 +489,26 @@ animation = &"Appear"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1165993149]
 position = Vector2(0, 2.7222223)
 shape = SubResource("RectangleShape2D_rw8a5")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1807888719]
+stream = ExtResource("10_ugbui")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="TeleportSound" type="AudioStreamPlayer" parent="." unique_id=1753785209]
+stream = ExtResource("11_fcs02")
+bus = &"SFX"
+
+[node name="FootstepsSound" type="AudioStreamPlayer" parent="." unique_id=2002528086]
+stream = ExtResource("12_myrg7")
+bus = &"SFX"
+
+[node name="DeadSound" type="AudioStreamPlayer" parent="." unique_id=160573197]
+stream = ExtResource("13_kvlxm")
+bus = &"SFX"
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="." unique_id=1749806384]
+stream = ExtResource("14_uf5tr")
+bus = &"SFX"
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var animation: AnimatedSprite2D
+@export var trophy_sound: AudioStreamPlayer2D
 
 func _ready():
 	Events.trophy_was_pressed = false
@@ -19,7 +20,7 @@ func press_trophy():
 	animation.play("Pressed")
 	Events.trophy_was_pressed = true
 	Events.trophy_activate.emit()
-	# Here level finish sound and that things
+	trophy_sound.play()
 
 func _on_flag_activated():
 	animation.play("FlagDetected")

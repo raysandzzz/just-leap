@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6l58ravps5p2" path="res://scenes/trampoline/trampoline.gd" id="1_2ex2a"]
 [ext_resource type="Texture2D" uid="uid://cu5fppimr7lxl" path="res://assets/Traps/Trampoline/Idle.png" id="1_ood5c"]
 [ext_resource type="Texture2D" uid="uid://bq2voq21nuef7" path="res://assets/Traps/Trampoline/Jump (28x28).png" id="2_2ex2a"]
+[ext_resource type="AudioStream" uid="uid://dmbooaa3ywtk2" path="res://assets/Audio/SFX/trampo_sfx.wav" id="4_ee0gj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee0gj"]
 atlas = ExtResource("1_ood5c")
@@ -84,10 +85,11 @@ animations = [{
 a = Vector2(-0.0021267198, -0.4822011)
 b = Vector2(0.046787735, 10.608416)
 
-[node name="Trampoline" type="Area2D" unique_id=1576701210]
+[node name="Trampoline" type="Area2D" unique_id=1576701210 node_paths=PackedStringArray("trampo_sound")]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_2ex2a")
+trampo_sound = NodePath("TrampolineSFX")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1733947040]
 z_index = -1
@@ -102,3 +104,8 @@ rotation = -1.5707474
 scale = Vector2(6.6494536, 2.074031)
 skew = 0.014091611
 shape = SubResource("SegmentShape2D_2ex2a")
+
+[node name="TrampolineSFX" type="AudioStreamPlayer2D" parent="." unique_id=1900110180]
+stream = ExtResource("4_ee0gj")
+volume_db = 4.0
+bus = &"SFX"

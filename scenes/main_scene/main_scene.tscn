@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://btnh2hx0ukjpr" path="res://scenes/levels/level_5.tscn" id="7_3naof"]
 [ext_resource type="PackedScene" uid="uid://d27if8rksvvwx" path="res://scenes/levels/level_7.tscn" id="9_17klg"]
 [ext_resource type="PackedScene" uid="uid://8e1e4vn3vowk" path="res://scenes/levels/level_8.tscn" id="10_ugojt"]
+[ext_resource type="AudioStream" uid="uid://cvrym4cyp4dbo" path="res://assets/Audio/Music/music1.wav" id="15_3naof"]
+[ext_resource type="AudioStream" uid="uid://cs3diej5mrwvm" path="res://assets/Audio/Music/music2.wav" id="16_17klg"]
 
 [node name="MainScene" type="Node2D" unique_id=348107646]
 script = ExtResource("1_o5t4i")
@@ -24,3 +26,11 @@ position = Vector2(0, 8)
 
 [node name="Pause" parent="." unique_id=1183054939 instance=ExtResource("2_symxd")]
 process_mode = 3
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=129967373]
+stream = ExtResource("15_3naof")
+bus = &"Music"
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=210964937]
+stream = ExtResource("16_17klg")
+bus = &"Music"

@@ -11,6 +11,8 @@ extends Area2D
 @onready var dialogue_label: RichTextLabel = $Marker2D/Dialogues
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var dialogue_sound: AudioStreamPlayer2D
+
 var _can_interact: bool = false
 var _is_talking: bool = false
 var _current_index: int = 0
@@ -24,7 +26,7 @@ func _ready() -> void:
 	# Prevent duplicate connection errors
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
-		
+	
 	if not body_exited.is_connected(_on_body_exited):
 		body_exited.connect(_on_body_exited)
 
@@ -34,6 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("interact"):
 		_advance_dialogue()
+		dialogue_sound.play()
 
 func _advance_dialogue() -> void:
 	# Hide prompt when conversation begins

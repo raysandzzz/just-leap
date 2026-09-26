@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://drkqcquprhooy" path="res://assets/Items/Checkpoints/End/FlagDetected.png" id="2_vvht2"]
 [ext_resource type="Texture2D" uid="uid://bjme348p0sbyr" path="res://assets/Items/Checkpoints/End/Idle(NoFlag).png" id="3_jvvik"]
 [ext_resource type="Script" uid="uid://ckv0bi1y541vf" path="res://scenes/trophy/trophy.gd" id="3_mkj6r"]
+[ext_resource type="AudioStream" uid="uid://cu5jlfxjatnb1" path="res://assets/Audio/SFX/win.wav" id="6_ad87k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf2m8"]
 atlas = ExtResource("1_38sld")
@@ -185,12 +186,13 @@ sprite_frames = SubResource("SpriteFrames_8w0r3")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1830447336 node_paths=PackedStringArray("animation")]
+[node name="Area2D" type="Area2D" parent="." unique_id=1830447336 node_paths=PackedStringArray("animation", "trophy_sound")]
 scale = Vector2(1.168089, 0.61740845)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("3_mkj6r")
 animation = NodePath("../AnimatedSprite2D")
+trophy_sound = NodePath("../TrophySound")
 
 [node name="PressedCollision" type="CollisionShape2D" parent="Area2D" unique_id=465086495]
 position = Vector2(-15.353278, -21.301292)
@@ -204,5 +206,10 @@ collision_mask = 0
 position = Vector2(-7.482646e-07, 10.162598)
 scale = Vector2(1.588898, 0.48809025)
 shape = SubResource("RectangleShape2D_h4t55")
+
+[node name="TrophySound" type="AudioStreamPlayer2D" parent="." unique_id=827431688]
+stream = ExtResource("6_ad87k")
+volume_db = 10.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
