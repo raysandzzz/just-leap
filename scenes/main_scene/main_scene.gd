@@ -4,16 +4,19 @@ extends Node2D
 @onready var music: AudioStreamPlayer = $MusicPlayer
 @onready var music_2: AudioStreamPlayer = $MusicPlayer2
 
+const BG_TIER_1 = preload("res://assets/Background/Green.png")
+const BG_TIER_2 = preload("res://assets/Background/Gray.png")
+@onready var background_rect: TextureRect = $CanvasLayer/TextureRect
+
 var _current_scene: int = 1
 var _instanced_scene: Node
 
 func _ready() -> void:
 	Events.level_finished.connect(_next_level)
 	_create_scene(_current_scene)
-	if _current_scene >= 6:
-		music_2.play()
-	else:
-		music.play()
+	
+	set_music_for_level(_current_scene)
+	set_background_for_level(_current_scene)
 
 func _create_scene(scene_number: int) -> void:
 	if scene_number < 1 or scene_number > scenes.size():
@@ -44,3 +47,19 @@ func _restart() -> void:
 	# Wait for the old scene to actually be removed from the tree
 	await get_tree().process_frame
 	_create_scene(_current_scene)
+
+func set_music_for_level(current_level: int):
+	if current_level <= 6:
+		# Levels 1 to 5
+		music.play()
+	else:
+		# Levels 6 and onward
+		music_2.play()
+
+func set_background_for_level(level_number: int) -> void:
+	if _current_scene <= 6:
+		# Levels 1 to 5
+		background_rect.texture = BG_TIER_1
+	else:
+		# Levels 6 and onward
+		background_rect.texture = BG_TIER_2

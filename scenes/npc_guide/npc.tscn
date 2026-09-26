@@ -12,7 +12,6 @@ size = Vector2(42, 4)
 [sub_resource type="LabelSettings" id="LabelSettings_34f1p"]
 font = ExtResource("4_dxqff")
 font_size = 12
-font_color = Color(0.8036936, 0.9140625, 0.16067505, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [node name="NPC" type="Area2D" unique_id=1211179390 node_paths=PackedStringArray("dialogue_sound")]
@@ -33,10 +32,9 @@ shape = SubResource("RectangleShape2D_n7mh2")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=338286]
 texture_filter = 1
-position = Vector2(-120, -65)
+position = Vector2(-122, -64)
 
 [node name="Dialogues" type="RichTextLabel" parent="Marker2D" unique_id=657402815]
-modulate = Color(0.8148174, 0.90625, 0.2902832, 1)
 texture_filter = 1
 clip_contents = false
 anchors_preset = 8
@@ -44,8 +42,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -1.0
 offset_right = 248.0
-offset_bottom = 48.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
