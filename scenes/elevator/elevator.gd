@@ -24,6 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("players"):
 		_move_to_y(_initial_y)
+		await get_tree().create_timer(1.0).timeout
 		elev_animation.play("Off")
 
 func _move_to_y(target_position: float) -> void:
