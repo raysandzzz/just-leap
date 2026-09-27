@@ -43,6 +43,10 @@ func _next_level() -> void:
 	_current_scene += 1
 	_delete_scene()
 	_create_scene.call_deferred(_current_scene)
+	
+	# Update music and background when advancing levels
+	set_music_for_level(_current_scene)
+	set_background_for_level(_current_scene)
 
 func _restart() -> void:
 	_delete_scene()
@@ -50,18 +54,24 @@ func _restart() -> void:
 	await get_tree().process_frame
 	_create_scene(_current_scene)
 
-func set_music_for_level(current_level: int):
-	if current_level <= 6:
-		# Levels 1 to 5
-		music.play()
+func set_music_for_level(current_level: int) -> void:
+	# Levels 0 to 5 correspond to scene index 1 to 6
+	if current_level < 7:
+		if music_2.playing:
+			music_2.stop()
+		if not music.playing:
+			music.play()
 	else:
-		# Levels 6 and onward
-		music_2.play()
+		# Level 6 and onward (scene index 7+)
+		if music.playing:
+			music.stop()
+		if not music_2.playing:
+			music_2.play()
 
 func set_background_for_level(level_number: int) -> void:
-	if _current_scene <= 6:
-		# Levels 1 to 5
+	# Levels 0 to 5 correspond to scene index 1 to 6
+	if level_number < 7:
 		background_rect.texture = BG_TIER_1
 	else:
-		# Levels 6 and onward
+		# Level 6 and onward (scene index 7+)
 		background_rect.texture = BG_TIER_2
