@@ -1,6 +1,8 @@
 extends Node
 
-var _can_pause: bool = true
+@export var paused_screen: ColorRect
+@onready var pause_sound: AudioStreamPlayer2D = $PauseSFX
+var _can_pause: bool = false
 
 func _ready() -> void:
 	# Dialogue locks. Ignore pause if dialogue is currently running
@@ -13,6 +15,9 @@ func _ready() -> void:
 	_connect_event(Events.level_finished, func(): _can_pause = false)
 	_connect_event(Events.trophy_activate, func(): _can_pause = false)
 	_connect_event(Events.time_over, func(): _can_pause = false)
+	
+	# Main menu is on screen -> enable pause once game starts
+	_connect_event(Events.game_started, func(): _can_pause = true)
 
 func _connect_event(ev: Signal, callable: Callable):
 	if not ev.is_connected(callable):
@@ -24,9 +29,5 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("pause"):
 		get_tree().paused = !get_tree().paused
-
-func _on_dialogue_started() -> void:
-	_can_pause = false
-
-func _on_dialogue_finished() -> void:
-	_can_pause = true
+		pause_sound.play()
+		paused_screen.visible = !paused_screen.visible

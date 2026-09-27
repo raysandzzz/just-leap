@@ -39,7 +39,7 @@ func _ready() -> void:
 	velocity = Vector2.ZERO
 	
 	# Connect to start appearing once the transition finishes opening
-	Transition.transition_finished.connect(_play_appear_sequence, CONNECT_ONE_SHOT)
+	Transition.transition_finished.connect(play_appear_sequence, CONNECT_ONE_SHOT)
 	add_to_group("players")
 	Events.trophy_activate.connect(_on_level_finished)
 	
@@ -49,6 +49,8 @@ func _ready() -> void:
 	# If the dialogue started, lock controls, else return
 	Events.dialogue_started.connect(lock_movement)
 	Events.dialogue_finished.connect(unlock_movement)
+	
+	Events.game_started.connect(play_appear_sequence)
 
 func _physics_process(delta: float):
 	# Get the directional input (-1, 1)
@@ -173,7 +175,11 @@ func kill_player():
 	await get_tree().create_timer(0.8).timeout
 	player_dead.emit()
 
-func _play_appear_sequence() -> void:
+func play_appear_sequence() -> void:
+	if not Events.is_game_started:
+		await Events.game_started
+		await get_tree().create_timer(1.0).timeout
+	
 	animation.play("Appear")
 	tele_sound.play()
 	await animation.animation_finished

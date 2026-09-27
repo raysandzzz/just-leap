@@ -475,6 +475,7 @@ animations = [{
 size = Vector2(20, 23.444445)
 
 [node name="Player" type="CharacterBody2D" unique_id=182577052 node_paths=PackedStringArray("animation") groups=["dust_player"]]
+z_index = -1
 texture_filter = 1
 scale = Vector2(0.9, 0.9)
 collision_layer = 4
@@ -488,7 +489,8 @@ sprite_frames = SubResource("SpriteFrames_8w0r3")
 animation = &"Appear"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1165993149]
-position = Vector2(0, 2.7222223)
+position = Vector2(0, 4.4444447)
+scale = Vector2(1, 0.98)
 shape = SubResource("RectangleShape2D_rw8a5")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1807888719]

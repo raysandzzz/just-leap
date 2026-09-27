@@ -1,6 +1,41 @@
 [gd_scene format=3 uid="uid://vpfffnyf05wh"]
 
 [ext_resource type="Script" uid="uid://rkhybbhb8u0x" path="res://pause.gd" id="1_ejmu6"]
+[ext_resource type="LabelSettings" uid="uid://dwhqev3m311rt" path="res://assets/Fonts/paused_label_settings.tres" id="2_xanx7"]
+[ext_resource type="AudioStream" uid="uid://drkfjnjo6lm4o" path="res://assets/Audio/SFX/pause_sound.wav" id="3_cxayc"]
 
-[node name="Pause" type="Node" unique_id=1183054939]
+[node name="Pause" type="Node" unique_id=1183054939 node_paths=PackedStringArray("paused_screen")]
 script = ExtResource("1_ejmu6")
+paused_screen = NodePath("CanvasLayer/ColorRect")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1771034175]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1791909497]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08768062, 0.08768062, 0.08768062, 0.23529412)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1366128807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -16.0
+offset_right = 42.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = ExtResource("2_xanx7")
+
+[node name="PauseSFX" type="AudioStreamPlayer2D" parent="." unique_id=126707184]
+stream = ExtResource("3_cxayc")
+bus = &"SFX"

@@ -12,6 +12,9 @@ tile_map_data = PackedByteArray("AAAZAPL/AAACAAQAAAAZAPP/AAACAAUAAAAZAPT/AAACAAU
 [node name="NPC" parent="." index="1" unique_id=1211179390 instance=ExtResource("3_osc7o")]
 position = Vector2(-91, 70)
 
+[node name="Label" parent="Countdown/Control" parent_id_path=PackedInt32Array(85377098, 599405979) index="0" unique_id=1097365384]
+visible = true
+
 [node name="Player" parent="." index="4" unique_id=182577052]
 position = Vector2(-265, 71)
 
@@ -33,3 +36,5 @@ position = Vector2(765, 228.00002)
 
 [node name="Flag" parent="Goal" index="1" unique_id=858324095]
 position = Vector2(594, 267)
+
+[editable path="Countdown"]

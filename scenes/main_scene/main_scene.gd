@@ -31,6 +31,8 @@ func _create_scene(scene_number: int) -> void:
 		if not player.player_dead.is_connected(_restart):
 			player.player_dead.connect(_restart, CONNECT_ONE_SHOT)
 	
+	await get_tree().process_frame
+	
 	Transition.open_circle()
 
 func _delete_scene() -> void:

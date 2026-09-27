@@ -10,6 +10,7 @@ var twinkle_counter: float = 0.0
 var paused: bool = false
 
 func _ready():
+	label.visible = false
 	time_left = init_time
 	time_speed = 1.0
 	twinkle_counter = 0.0
@@ -94,5 +95,6 @@ func _on_dialogue() -> void:
 	label.modulate = Color("72a11d")
 
 func play_timer() -> void:
+	label.visible = true
 	paused = false
 	label.modulate = Color.WHITE
