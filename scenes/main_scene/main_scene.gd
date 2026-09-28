@@ -13,6 +13,7 @@ var _instanced_scene: Node
 
 func _ready() -> void:
 	Events.level_finished.connect(_next_level)
+	Events.game_finished.connect(_new_game)
 	_create_scene(_current_scene)
 	
 	set_music_for_level(_current_scene)
@@ -75,3 +76,21 @@ func set_background_for_level(level_number: int) -> void:
 	else:
 		# Level 6 and onward (scene index 7+)
 		background_rect.texture = BG_TIER_2
+
+func _new_game() -> void:
+	_current_scene = 1
+	_delete_scene()
+	
+	# Await final screen delete at all
+	await get_tree().process_frame
+	
+	# Restaurar variables del juego
+	Events.is_game_started = false
+	
+	# Update music and background
+	set_music_for_level(_current_scene)
+	set_background_for_level(_current_scene)
+	
+	await Transition.close_circle()
+	_create_scene(_current_scene)
+	Transition.open_circle()

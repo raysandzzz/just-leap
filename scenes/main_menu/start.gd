@@ -6,6 +6,7 @@ extends Button
 
 func _ready() -> void:
 	pressed.connect(_on_start_pressed)
+	Events.game_finished.connect(_on_game_finished)
 
 func _on_start_pressed() -> void:
 	# Inform the game that gameplay has officially started
@@ -16,5 +17,15 @@ func _on_start_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
 	
 	# Delete Start and Quit buttons
+	#if is_instance_valid(main_buttons_container):
+	#	main_buttons_container.queue_free()
+	# (Changed to be able to resume the menu later)
 	if is_instance_valid(main_buttons_container):
-		main_buttons_container.queue_free()
+		main_buttons_container.hide()
+
+func _on_game_finished() -> void:
+	await Transition.transition_finished
+	Events.is_game_started = false
+	# Resume main menu:
+	if is_instance_valid(main_buttons_container):
+		main_buttons_container.show()

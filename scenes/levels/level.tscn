@@ -15,6 +15,9 @@ z_index = 1
 
 [node name="Countdown" parent="." unique_id=85377098 instance=ExtResource("1_ouxo3")]
 
+[node name="Label" parent="Countdown/Control" parent_id_path=PackedInt32Array(85377098, 599405979) index="0" unique_id=1097365384]
+visible = true
+
 [node name="Player" parent="." unique_id=182577052 instance=ExtResource("1_mbbpy")]
 position = Vector2(27, -26)
 
@@ -33,3 +36,5 @@ position = Vector2(-428, -74)
 
 [node name="Flag" parent="Goal" unique_id=858324095 instance=ExtResource("7_qogh7")]
 position = Vector2(41, -4)
+
+[editable path="Countdown"]

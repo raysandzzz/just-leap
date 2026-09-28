@@ -13,6 +13,7 @@ config_version=5
 config/name="JustLeap"
 run/main_scene="uid://6kg60xwskn2p"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [audio]

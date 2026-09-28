@@ -21,3 +21,4 @@ position = Vector2(714, -33)
 position = Vector2(355, 6)
 
 [editable path="RotatedTiles"]
+[editable path="Countdown"]

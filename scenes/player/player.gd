@@ -98,9 +98,9 @@ func _physics_process(delta: float):
 	elif is_on_wall() && !is_on_floor():
 		animation.play("Wall")
 		if normalized.x > 0:
-			animation.offset.x = -2.0
+			animation.offset.x = -0.5
 		elif normalized.x < 0:
-			animation.offset.x = 2.0
+			animation.offset.x = 0.2
 		else:
 			animation.offset.x = 0.0
 	else:

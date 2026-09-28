@@ -70,7 +70,7 @@ label_settings = SubResource("LabelSettings_34f1p")
 
 [node name="DialogueSound" type="AudioStreamPlayer2D" parent="." unique_id=1335011020]
 stream = ExtResource("5_0xjrg")
-volume_db = 3.0
+volume_db = 8.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

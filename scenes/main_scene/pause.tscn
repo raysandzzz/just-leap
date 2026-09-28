@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vpfffnyf05wh"]
 
-[ext_resource type="Script" uid="uid://rkhybbhb8u0x" path="res://pause.gd" id="1_ejmu6"]
+[ext_resource type="Script" uid="uid://rkhybbhb8u0x" path="res://scripts/pause.gd" id="1_ejmu6"]
 [ext_resource type="LabelSettings" uid="uid://dwhqev3m311rt" path="res://assets/Fonts/paused_label_settings.tres" id="2_xanx7"]
 [ext_resource type="AudioStream" uid="uid://drkfjnjo6lm4o" path="res://assets/Audio/SFX/pause_sound.wav" id="3_cxayc"]
 

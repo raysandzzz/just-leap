@@ -472,7 +472,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw8a5"]
-size = Vector2(20, 23.444445)
+size = Vector2(15.069446, 23.444445)
 
 [node name="Player" type="CharacterBody2D" unique_id=182577052 node_paths=PackedStringArray("animation") groups=["dust_player"]]
 z_index = -1

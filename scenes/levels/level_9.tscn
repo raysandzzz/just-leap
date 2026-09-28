@@ -28,4 +28,6 @@ position = Vector2(554, -85)
 position = Vector2(236, -44.999996)
 
 [node name="Flag" parent="Goal" parent_id_path=PackedInt32Array(301481826) index="1" unique_id=858324095]
-position = Vector2(144, 67)
+position = Vector2(211, 30)
+
+[editable path="Countdown"]

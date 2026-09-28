@@ -17,6 +17,12 @@ signal dialogue_finished
 # Signal to emit when game start for first time
 signal game_started
 
+# Signal to emit when game finished (after final animation)
+signal game_finished
+
+# Signal to emit when animation started ? idk tbh XDD
+signal animation_started
+
 var is_game_started: bool = false
 
 # I put these var's here at the start of the development
