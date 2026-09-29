@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cr3ku4f7ovxms" path="res://assets/Traps/Spikes/Idle.png" id="2_7ccwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6pyl"]
-size = Vector2(6, 7)
+size = Vector2(5, 7)
 
 [node name="Spike" unique_id=1304619005 instance=ExtResource("1_w8xo7")]
 
@@ -14,6 +14,6 @@ texture = ExtResource("2_7ccwm")
 offset = Vector2(0, -4)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1356072890]
-position = Vector2(0, 1)
-scale = Vector2(2, 2)
+position = Vector2(0, 1.0000002)
+scale = Vector2(2.319997, 2)
 shape = SubResource("RectangleShape2D_h6pyl")

@@ -174,6 +174,7 @@ func kill_player():
 	
 	await get_tree().create_timer(0.8).timeout
 	player_dead.emit()
+	GlobalCounter.add_death()
 
 func play_appear_sequence() -> void:
 	if not Events.is_game_started:

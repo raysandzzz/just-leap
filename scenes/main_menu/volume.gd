@@ -1,4 +1,4 @@
-extends Button # Use CheckButton, TextureButton or Button depending on your node
+extends Button
 
 # Bus name configured in the Audio panel
 @export var music_bus_name: String = "Music"

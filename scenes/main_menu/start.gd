@@ -24,7 +24,7 @@ func _on_start_pressed() -> void:
 		main_buttons_container.hide()
 
 func _on_game_finished() -> void:
-	await Transition.transition_finished
+	await Events.animation_finished
 	Events.is_game_started = false
 	# Resume main menu:
 	if is_instance_valid(main_buttons_container):

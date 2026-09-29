@@ -500,6 +500,7 @@ bus = &"SFX"
 
 [node name="TeleportSound" type="AudioStreamPlayer" parent="." unique_id=1753785209]
 stream = ExtResource("11_fcs02")
+volume_db = -4.0
 bus = &"SFX"
 
 [node name="FootstepsSound" type="AudioStreamPlayer" parent="." unique_id=2002528086]

@@ -13,7 +13,7 @@ config_version=5
 config/name="JustLeap"
 run/main_scene="uid://6kg60xwskn2p"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-boot_splash/show_image=false
+boot_splash/bg_color=Color(0.42351973, 0.5, 0.31835938, 1)
 config/icon="res://icon.svg"
 
 [audio]
@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://dicmspekj7h3n"
 
 Events="*uid://dqudqbocnqr4q"
 Transition="*uid://b7f4vklyx1t0l"
+GlobalCounter="*uid://opsvdmd6p14q"
 
 [display]
 
@@ -37,7 +38,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/virtual_joystick_DX/plugin.cfg")
 
 [input]
 

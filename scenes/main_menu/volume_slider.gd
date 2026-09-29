@@ -1,7 +1,7 @@
 extends HSlider
 
 # Audio bus name configured in the Audio panel
-@export var music_bus_name: String = "Music"
+@export var music_bus_name: String = "Master"
 
 var _bus_index: int
 

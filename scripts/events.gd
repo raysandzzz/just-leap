@@ -23,6 +23,8 @@ signal game_finished
 # Signal to emit when animation started ? idk tbh XDD
 signal animation_started
 
+signal animation_finished
+
 var is_game_started: bool = false
 
 # I put these var's here at the start of the development

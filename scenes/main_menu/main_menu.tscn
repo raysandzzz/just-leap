@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bx0b17vooagm1" path="res://assets/Menu/Buttons/Volume.png" id="4_uqeha"]
 [ext_resource type="Texture2D" uid="uid://5gh65bs32tgq" path="res://assets/Menu/Buttons/Volume-disabled.png" id="5_3ovsr"]
 [ext_resource type="Script" uid="uid://c6hcaqmo5wrev" path="res://scenes/main_menu/volume.gd" id="8_4xg86"]
-[ext_resource type="Script" uid="uid://cvnvk7r7nyoa8" path="res://scenes/main_menu/h_slider.gd" id="9_thkx5"]
+[ext_resource type="Script" uid="uid://cvnvk7r7nyoa8" path="res://scenes/main_menu/volume_slider.gd" id="9_thkx5"]
 [ext_resource type="FontFile" uid="uid://rnvq8yi32w2g" path="res://assets/Fonts/dialogues_font.tres" id="10_x2yjq"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_x2yjq"]
@@ -72,7 +72,7 @@ theme_override_icons/checked = ExtResource("5_3ovsr")
 theme_override_icons/unchecked = ExtResource("4_uqeha")
 script = ExtResource("8_4xg86")
 
-[node name="HSlider" type="HSlider" parent="Control/VBoxContainer2" unique_id=345991973]
+[node name="VolumeSlider" type="HSlider" parent="Control/VBoxContainer2" unique_id=345991973]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
@@ -82,12 +82,12 @@ script = ExtResource("9_thkx5")
 [node name="Label" type="Label" parent="Control" unique_id=1535436313]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 56.0
+offset_top = 64.0
 offset_right = 346.0
-offset_bottom = 142.0
+offset_bottom = 150.0
 theme_override_colors/font_color = Color(2.2780623, 2.2780623, 2.2780623, 1)
-theme_override_colors/font_outline_color = Color(0.07305908, 0.4453125, 0.23591995, 1)
-theme_override_constants/outline_size = 4
+theme_override_colors/font_outline_color = Color(0.12941177, 0.12156863, 0.1882353, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("10_x2yjq")
 theme_override_font_sizes/font_size = 48
 text = "Just Leap"

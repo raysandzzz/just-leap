@@ -19,14 +19,49 @@
 [ext_resource type="PackedScene" uid="uid://dwsrxf6u0t8wj" path="res://scenes/main_menu/main_menu.tscn" id="13_qgjuk"]
 [ext_resource type="AudioStream" uid="uid://cvrym4cyp4dbo" path="res://assets/Audio/Music/music1.wav" id="15_3naof"]
 [ext_resource type="AudioStream" uid="uid://cs3diej5mrwvm" path="res://assets/Audio/Music/music2.wav" id="16_17klg"]
+[ext_resource type="AudioStream" uid="uid://bv786bjv2leir" path="res://assets/Audio/Music/music3(credits).wav" id="20_1jbir"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w0r3"]
 shader = ExtResource("13_datfd")
 shader_parameter/motion_speed = Vector2(0.2, 0.2)
 
-[node name="MainScene" type="Node2D" unique_id=348107646]
+[sub_resource type="Animation" id="Animation_1jbir"]
+resource_name = "NewGame"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NewGameFade/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NewGameFade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lt3s2"]
+_data = {
+&"NewGame": SubResource("Animation_1jbir")
+}
+
+[node name="MainScene" type="Node2D" unique_id=348107646 node_paths=PackedStringArray("animation")]
 script = ExtResource("1_o5t4i")
-scenes = Array[PackedScene]([ExtResource("2_3t4qf"), ExtResource("3_ugojt"), ExtResource("4_f6yoc"), ExtResource("5_nim2u"), ExtResource("6_sro07"), ExtResource("7_3naof"), ExtResource("2_s5p1y"), ExtResource("9_17klg"), ExtResource("10_ugojt"), ExtResource("2_f6yoc"), ExtResource("2_nim2u"), ExtResource("2_qgjuk")])
+scenes = Array[PackedScene]([ExtResource("2_qgjuk"), ExtResource("2_3t4qf"), ExtResource("3_ugojt"), ExtResource("4_f6yoc"), ExtResource("5_nim2u"), ExtResource("6_sro07"), ExtResource("7_3naof"), ExtResource("2_s5p1y"), ExtResource("9_17klg"), ExtResource("10_ugojt"), ExtResource("2_f6yoc"), ExtResource("2_nim2u")])
+animation = NodePath("AnimationPlayer")
 
 [node name="Pause" parent="." unique_id=1183054939 instance=ExtResource("2_symxd")]
 process_mode = 3
@@ -37,12 +72,17 @@ process_mode = 3
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=942101833]
+z_index = -1
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_8w0r3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 665.0
+offset_top = -211.0
+offset_right = 665.0
+offset_bottom = -211.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -58,3 +98,23 @@ bus = &"Music"
 [node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=210964937]
 stream = ExtResource("16_17klg")
 bus = &"Music"
+
+[node name="MusicPlayer3Credits" type="AudioStreamPlayer" parent="." unique_id=1475930262]
+stream = ExtResource("20_1jbir")
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=859831967]
+libraries/ = SubResource("AnimationLibrary_lt3s2")
+
+[node name="NewGameFade" type="CanvasLayer" parent="." unique_id=1041691708]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="NewGameFade" unique_id=2099017361]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
