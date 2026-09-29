@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwqpi3kf3shqh"]
+
+[ext_resource type="Script" uid="uid://bbd3tktwgsm3b" path="res://scenes/loading_screen/loading_screen.gd" id="1_8cml4"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=278568219]
+script = ExtResource("1_8cml4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1616404205]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2513951, 0.265625, 0.23242188, 1)

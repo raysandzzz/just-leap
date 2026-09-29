@@ -162,6 +162,7 @@ func _time_over() -> void:
 	explosion_sound.play()
 	await animation.animation_finished
 	await Transition.close_circle(0.8)
+	GlobalCounter.add_death()
 	player_dead.emit()
 
 func kill_player():
@@ -173,13 +174,11 @@ func kill_player():
 	animation.stop()
 	
 	await get_tree().create_timer(0.8).timeout
-	player_dead.emit()
 	GlobalCounter.add_death()
+	player_dead.emit()
 
 func play_appear_sequence() -> void:
-	if not Events.is_game_started:
-		await Events.game_started
-		await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	
 	animation.play("Appear")
 	tele_sound.play()

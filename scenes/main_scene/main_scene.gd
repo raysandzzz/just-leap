@@ -8,7 +8,7 @@ extends Node2D
 
 const BG_TIER_1 = preload("res://assets/Background/Green.png")
 const BG_TIER_2 = preload("res://assets/Background/Gray.png")
-@onready var background_rect: TextureRect = $CanvasLayer/TextureRect
+@onready var background_rect: TextureRect = $Background/TextureRect
 
 var _current_scene: int = 0
 var _instanced_scene: Node
@@ -19,10 +19,9 @@ func _ready() -> void:
 	
 	# If scene 0 is your Main Menu, instantiate it on ready. 
 	# (If MainMenu is a separate UI node in MainScene, remove _create_scene from here)
-	_create_scene(_current_scene)
+	_create_scene(_current_scene, false)
 	
-	set_music_for_level(_current_scene)
-	set_background_for_level(_current_scene)
+	# Removed redundant music and background calls here since _create_scene handles them.
 
 func _create_scene(scene_number: int, open_transition: bool = true) -> void:
 	if scene_number < 0 or scene_number >= scenes.size():
@@ -31,6 +30,7 @@ func _create_scene(scene_number: int, open_transition: bool = true) -> void:
 	_instanced_scene = scenes[scene_number].instantiate()
 	add_child(_instanced_scene)
 	
+	# Update music and background AFTER the scene instance is added
 	set_music_for_level(_current_scene)
 	set_background_for_level(_current_scene)
 	
@@ -51,12 +51,15 @@ func _delete_scene() -> void:
 func _next_level() -> void:
 	_current_scene += 1
 	_delete_scene()
+	
+	# Create scene normally instead of call_deferred to keep proper sync
 	_create_scene(_current_scene)
-	set_music_for_level(_current_scene)
-	set_background_for_level(_current_scene)
+	
+	# Removed redundant music and background calls here.
 
 func _restart() -> void:
 	_delete_scene()
+	# Wait for the old scene to actually be removed from the tree
 	await get_tree().process_frame
 	_create_scene(_current_scene)
 
@@ -70,6 +73,7 @@ func set_music_for_level(current_level: int) -> void:
 		if music_2.playing:
 			music_2.stop()
 		if not music_3_credits.playing:
+			await get_tree().create_timer(2.5).timeout
 			music_3_credits.play()
 	elif current_level < 6:
 		if music_2.playing:
@@ -83,7 +87,15 @@ func set_music_for_level(current_level: int) -> void:
 			music_2.play()
 
 func set_background_for_level(level_number: int) -> void:
-	if level_number < 6:
+	var scene_resource = scenes[level_number] if level_number >= 0 and level_number < scenes.size() else null
+	var scene_path = scene_resource.resource_path if scene_resource else ""
+	
+	if background_rect:
+		background_rect.show()
+	
+	if "final_screen.tscn" in scene_path:
+		background_rect.texture = BG_TIER_2
+	elif level_number < 6:
 		background_rect.texture = BG_TIER_1
 	else:
 		background_rect.texture = BG_TIER_2
@@ -91,15 +103,18 @@ func set_background_for_level(level_number: int) -> void:
 func _new_game() -> void:
 	_current_scene = 0
 	
+	# 1. Delete the blacked-out final screen while the screen is already dark
 	_delete_scene()
+	
+	# 2. Wait one frame for the deletion to process
 	await get_tree().process_frame
 	
 	Events.is_game_started = false
 	
-	# Instantiate scene 0 (or level 1) behind the fade
+	# 3. Instantiate scene 0 (or level 1) behind the fade
 	_create_scene(_current_scene, false)
 	
-	# Play the fade-in animation to reveal the game level smoothly
+	# 4. NOW play the "NewGame" animation to fade-in / open the screen and reveal scene 0
 	if animation:
 		animation.play("NewGame")
 

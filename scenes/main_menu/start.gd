@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	# Inform the game that gameplay has officially started
-	Events.game_started.emit()
 	Events.is_game_started = true
+	Events.game_started.emit()
 	
 	button_sound.play()
 	await get_tree().create_timer(0.2).timeout
