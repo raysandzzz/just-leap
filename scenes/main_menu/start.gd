@@ -22,6 +22,8 @@ func _on_start_pressed() -> void:
 	# (Changed to be able to resume the menu later)
 	if is_instance_valid(main_buttons_container):
 		main_buttons_container.hide()
+	
+	GlobalCounter.start_new_run()
 
 func _on_game_finished() -> void:
 	await Events.animation_finished

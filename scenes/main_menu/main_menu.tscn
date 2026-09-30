@@ -1,15 +1,19 @@
 [gd_scene format=4 uid="uid://dwsrxf6u0t8wj"]
 
 [ext_resource type="Theme" uid="uid://c2fdddn1r5bht" path="res://themes/menu_button.tres" id="1_ob46e"]
+[ext_resource type="Script" uid="uid://dpgd8npucods7" path="res://scenes/main_menu/log_button.gd" id="2_qel0l"]
 [ext_resource type="Texture2D" uid="uid://dwswc01mssu0j" path="res://assets/Menu/Buttons/Play.png" id="3_4xg86"]
 [ext_resource type="Script" uid="uid://doci18uw0sii8" path="res://scenes/main_menu/start.gd" id="3_5seab"]
+[ext_resource type="LabelSettings" uid="uid://e538r4e0cctj" path="res://assets/Fonts/log_label_settings.tres" id="3_dn3lk"]
 [ext_resource type="Texture2D" uid="uid://b6g4418pxsm6a" path="res://assets/Menu/Buttons/Close.png" id="3_wem23"]
 [ext_resource type="Script" uid="uid://cvo3ggtxjqwul" path="res://scenes/main_menu/quit.gd" id="4_3ovsr"]
+[ext_resource type="Texture2D" uid="uid://bnw5wqd1lio4v" path="res://assets/Menu/Buttons/Leaderboard.png" id="4_lqpn7"]
 [ext_resource type="Texture2D" uid="uid://bx0b17vooagm1" path="res://assets/Menu/Buttons/Volume.png" id="4_uqeha"]
 [ext_resource type="Texture2D" uid="uid://5gh65bs32tgq" path="res://assets/Menu/Buttons/Volume-disabled.png" id="5_3ovsr"]
 [ext_resource type="Script" uid="uid://c6hcaqmo5wrev" path="res://scenes/main_menu/volume.gd" id="8_4xg86"]
 [ext_resource type="Script" uid="uid://cvnvk7r7nyoa8" path="res://scenes/main_menu/volume_slider.gd" id="9_thkx5"]
 [ext_resource type="FontFile" uid="uid://rnvq8yi32w2g" path="res://assets/Fonts/dialogues_font.tres" id="10_x2yjq"]
+[ext_resource type="Texture2D" uid="uid://dg6j8mptotiew" path="res://assets/Menu/Buttons/Back.png" id="12_qel0l"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_x2yjq"]
 data = PackedByteArray("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")
@@ -26,6 +30,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LogButton" type="Button" parent="Control" unique_id=109629819 node_paths=PackedStringArray("stats_panel", "close_button")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 304.0
+offset_right = 54.0
+offset_bottom = 334.0
+icon = ExtResource("4_lqpn7")
+script = ExtResource("2_qel0l")
+stats_panel = NodePath("../StatsPanel")
+close_button = NodePath("../StatsPanel/CloseButton")
+
+[node name="StatsPanel" type="Panel" parent="Control" unique_id=1623883443]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.045
+offset_left = 218.0
+offset_top = 137.0
+offset_right = 363.0
+offset_bottom = 252.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/StatsPanel" unique_id=1124965854]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -40.5
+offset_right = 61.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=708697346]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Last Run Stats"
+label_settings = ExtResource("3_dn3lk")
+horizontal_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=663462425]
+layout_mode = 2
+text = "Total deaths: 0"
+label_settings = ExtResource("3_dn3lk")
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=735481167]
+layout_mode = 2
+text = "Total time: 00.00"
+label_settings = ExtResource("3_dn3lk")
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Control/StatsPanel" unique_id=1970251136]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 24.0
+icon = ExtResource("12_qel0l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=228555340]
 layout_mode = 1

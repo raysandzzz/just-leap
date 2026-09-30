@@ -9,4 +9,4 @@ func _ready() -> void:
 
 
 func _update_text():
-	label.text = str(GlobalCounter.deaths)
+	label.text = str(GlobalCounter.current_run_deaths)

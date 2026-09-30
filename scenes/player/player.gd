@@ -173,7 +173,7 @@ func kill_player():
 	_dead = true
 	animation.stop()
 	
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(0.5).timeout
 	GlobalCounter.add_death()
 	player_dead.emit()
 

@@ -15,6 +15,7 @@ run/main_scene="uid://dwqpi3kf3shqh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.42351973, 0.5, 0.31835938, 1)
 boot_splash/show_image=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [audio]

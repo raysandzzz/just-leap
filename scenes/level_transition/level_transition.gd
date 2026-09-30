@@ -19,6 +19,7 @@ func close_circle(duration: float = 0.8) -> void:
 	transition_finished.emit()
 
 func open_circle(duration: float = 0.8) -> void:
+	transition_finished.emit()
 	var tween: Tween = create_tween()
 	tween.tween_property(
 		color_rect.material, 
@@ -27,7 +28,6 @@ func open_circle(duration: float = 0.8) -> void:
 		duration
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	transition_finished.emit()
 
 func transition_to_scene(target_scene_path: String, duration: float = 0.8) -> void:
 	await close_circle(duration)

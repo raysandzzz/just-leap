@@ -30,19 +30,30 @@ func _create_scene(scene_number: int, open_transition: bool = true) -> void:
 	_instanced_scene = scenes[scene_number].instantiate()
 	add_child(_instanced_scene)
 	
-	# Update music and background AFTER the scene instance is added
 	set_music_for_level(_current_scene)
 	set_background_for_level(_current_scene)
 	
-	var players: Array[Node] = get_tree().get_nodes_in_group("players")
-	if not players.is_empty():
-		var player: Node = players[0]
-		if not player.player_dead.is_connected(_restart):
-			player.player_dead.connect(_restart, CONNECT_ONE_SHOT)
+	await get_tree().process_frame
+	
+	if is_instance_valid(_instanced_scene):
+		var player = _find_player_in_node(_instanced_scene)
+		if player and player.has_signal("player_dead"):
+			if not player.player_dead.is_connected(_restart):
+				player.player_dead.connect(_restart, CONNECT_ONE_SHOT)
 	
 	if open_transition:
-		await get_tree().process_frame
 		Transition.open_circle()
+	
+	GlobalCounter.start_level_timer(_current_scene)
+
+func _find_player_in_node(node: Node) -> Node:
+	if node.is_in_group("players"):
+		return node
+	for child in node.get_children():
+		var found = _find_player_in_node(child)
+		if found:
+			return found
+	return null
 
 func _delete_scene() -> void:
 	if is_instance_valid(_instanced_scene):
@@ -53,6 +64,7 @@ func _next_level() -> void:
 	_delete_scene()
 	
 	# Create scene normally instead of call_deferred to keep proper sync
+	await get_tree().process_frame
 	_create_scene(_current_scene)
 	
 	# Removed redundant music and background calls here.
