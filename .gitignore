@@ -7,3 +7,9 @@ addons/**/*.json
 addons/**/*.cfg
 addons/**/*.txt
 addons/**/data/
+
+# Ignore virtualjoystick
+res://addons/virtual_joystick_DX/
+
+# Ignore builds
+res://builds/
