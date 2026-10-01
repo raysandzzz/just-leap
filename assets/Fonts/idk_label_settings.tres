@@ -2266,5 +2266,6 @@ cache/0/18/2/glyphs/17/texture_idx = 0
 [resource]
 font = SubResource("FontFile_fwfat")
 font_size = 12
+font_color = Color(0, 0, 0, 1)
 outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.57768416, 0.7369791, 0.5974884, 1)

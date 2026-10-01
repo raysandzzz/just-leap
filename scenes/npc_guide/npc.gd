@@ -12,12 +12,16 @@ extends Area2D
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var dialogue_sound: AudioStreamPlayer2D
+@export var requires_game_beaten: bool = false
 
 var _can_interact: bool = false
 var _is_talking: bool = false
 var _current_index: int = 0
 
 func _ready() -> void:
+	if requires_game_beaten and not GlobalCounter.has_beaten_game:
+		queue_free()
+		return
 	animation.play("Idle")
 	
 	prompt_label.visible = false

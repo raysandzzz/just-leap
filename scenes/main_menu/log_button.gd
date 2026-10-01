@@ -7,7 +7,7 @@ extends Button
 @onready var time_label: Label = stats_panel.get_node("VBoxContainer/TimeLabel")
 
 func _ready() -> void:
-	visible = GlobalCounter.has_beaten_game
+	_update_button_visibility()
 	# Hide panel initially
 	if stats_panel:
 		stats_panel.visible = false
@@ -16,6 +16,9 @@ func _ready() -> void:
 	
 	if close_button:
 		close_button.pressed.connect(_close_panel)
+	
+	if Events.has_signal("game_finished"):
+		Events.game_finished.connect(_update_button_visibility)
 
 func _on_pressed() -> void:
 	if not stats_panel:
@@ -30,6 +33,9 @@ func _on_pressed() -> void:
 func _close_panel() -> void:
 	if stats_panel:
 		stats_panel.visible = false
+
+func _update_button_visibility():
+	visible = GlobalCounter.has_beaten_game
 
 func _update_display() -> void:
 	var formatted_time: String = GlobalCounter.format_time(GlobalCounter.last_run_time)

@@ -2,16 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dllfiqm8670g1" path="res://scenes/final_screen/final_screen.gd" id="1_1fyme"]
 [ext_resource type="PackedScene" uid="uid://d0rpdm7slgib6" path="res://scenes/base/base.tscn" id="1_m1q17"]
-[ext_resource type="PackedScene" uid="uid://dbmlcofo8rfkp" path="res://scenes/base/base_2.tscn" id="2_mowv3"]
+[ext_resource type="PackedScene" uid="uid://cnph1afndrqyx" path="res://scenes/base/base_2.tscn" id="2_mowv3"]
 [ext_resource type="PackedScene" uid="uid://33s4ot4vv7qq" path="res://scenes/npc_guide/npc.tscn" id="4_eahom"]
 [ext_resource type="PackedScene" uid="uid://ciy21blckctq2" path="res://scenes/follow_camera/follow_camera.tscn" id="4_ifloa"]
 [ext_resource type="PackedScene" uid="uid://b7ticj2ag1fjw" path="res://scenes/trampoline/trampoline.tscn" id="4_mowv3"]
 [ext_resource type="Script" uid="uid://ckq0c5gae5fbi" path="res://scenes/player/player.gd" id="5_m17mh"]
 [ext_resource type="Texture2D" uid="uid://plgq5roh5wfn" path="res://assets/Main Characters/Appearing (96x96).png" id="6_6loyo"]
 [ext_resource type="Texture2D" uid="uid://cbxhjqkq076hm" path="res://assets/Main Characters/Virtual Guy/Double Jump (32x32).png" id="7_5sjj3"]
-[ext_resource type="LabelSettings" uid="uid://c5q6lvkufw757" path="res://assets/Fonts/pixel_font.tres" id="8_4s3xv"]
 [ext_resource type="Texture2D" uid="uid://du60w0sv3rfwy" path="res://assets/Main Characters/Virtual Guy/Hit (32x32).png" id="8_hachm"]
-[ext_resource type="LabelSettings" uid="uid://bcwrt104sixgr" path="res://assets/Fonts/idk_label_settings.tres" id="8_o726p"]
 [ext_resource type="Texture2D" uid="uid://di5hr8jc6ltip" path="res://assets/Main Characters/Desappearing (96x96).png" id="9_1esrv"]
 [ext_resource type="LabelSettings" uid="uid://kkolmosdt5fy" path="res://assets/Fonts/name_label_settings.tres" id="9_a20ne"]
 [ext_resource type="Texture2D" uid="uid://uh18l22270e0" path="res://godot_engine_logo.png" id="9_o726p"]
@@ -24,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://56q0680i1cbq" path="res://assets/Audio/SFX/footstep.wav" id="16_nqwpt"]
 [ext_resource type="AudioStream" uid="uid://jajmlc2nqbeu" path="res://assets/Audio/SFX/hurt.wav" id="17_3wr33"]
 [ext_resource type="AudioStream" uid="uid://bhivsnrxybrsi" path="res://assets/Audio/SFX/explosion.wav" id="18_xsg1n"]
+[ext_resource type="LabelSettings" uid="uid://51s5np77812t" path="res://assets/Fonts/credits_labels.tres" id="23_6loyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rw8a5"]
 atlas = ExtResource("6_6loyo")
@@ -708,10 +707,9 @@ dialogue_lines = Array[String](["Placeholder XD"])
 text = "Test"
 
 [node name="Player" type="CharacterBody2D" parent="AnimationLevel" unique_id=182577052 node_paths=PackedStringArray("animation") groups=["dust_player"]]
-visible = false
 z_index = -1
 texture_filter = 1
-position = Vector2(-345.295, -3)
+position = Vector2(0, -610)
 scale = Vector2(0.9, 0.9)
 collision_layer = 4
 collision_mask = 9
@@ -753,6 +751,7 @@ bus = &"SFX"
 
 [node name="Camera2D" parent="AnimationLevel/Player" unique_id=1650205989 instance=ExtResource("4_ifloa")]
 position = Vector2(2.2222223, 10)
+zoom = Vector2(1.5, 1.5)
 limit_left = -321
 limit_top = -790
 limit_right = 319
@@ -771,7 +770,7 @@ offset_bottom = -637.0
 scale = Vector2(1.28, 1.28)
 text = "Developed by
                using:"
-label_settings = ExtResource("8_o726p")
+label_settings = ExtResource("23_6loyo")
 
 [node name="DevelopedBy2" type="Label" parent="AnimationLevel" unique_id=186898870]
 offset_left = 18.0
@@ -784,13 +783,13 @@ label_settings = ExtResource("9_a20ne")
 
 [node name="Thanks" type="Label" parent="AnimationLevel" unique_id=306501191]
 visible = false
-offset_left = -120.0
-offset_top = -648.0
-offset_right = 76.0
-offset_bottom = -625.0
+offset_left = -72.0
+offset_top = -640.0
+offset_right = 124.0
+offset_bottom = -617.0
 scale = Vector2(1.28, 1.28)
 text = "credits_thanks_label"
-label_settings = ExtResource("8_4s3xv")
+label_settings = ExtResource("23_6loyo")
 
 [node name="Credits" type="Label" parent="AnimationLevel" unique_id=1152637022]
 visible = false
@@ -800,7 +799,7 @@ offset_right = 76.0
 offset_bottom = -665.0
 scale = Vector2(1.28, 1.28)
 text = "Additional Credits"
-label_settings = ExtResource("8_4s3xv")
+label_settings = ExtResource("23_6loyo")
 horizontal_alignment = 1
 
 [node name="AssetsLabel" type="Label" parent="AnimationLevel" unique_id=1266908107]
@@ -814,7 +813,7 @@ text = "Free Assets [Pixel Adventure]:
 Pixel Frog
 Asset Modifications and UI:
 Ray Sandz"
-label_settings = ExtResource("8_4s3xv")
+label_settings = ExtResource("23_6loyo")
 horizontal_alignment = 1
 
 [node name="MusicLabel" type="Label" parent="AnimationLevel" unique_id=289884820]
@@ -828,7 +827,7 @@ text = "Free to use Music:
 Aventure - Quiet Bounce
 Zambolino - Playing Games
 Kubbi - Up In My Jam"
-label_settings = ExtResource("8_4s3xv")
+label_settings = ExtResource("23_6loyo")
 horizontal_alignment = 1
 
 [node name="MusicLabel2" type="Label" parent="AnimationLevel" unique_id=1542932349]
@@ -842,7 +841,7 @@ text = "SFX:
 Pixabay
 Jeageroni [ Free Retro Action
 Platformer SFX ]"
-label_settings = ExtResource("8_4s3xv")
+label_settings = ExtResource("23_6loyo")
 horizontal_alignment = 1
 
 [node name="GodotLogo" type="Sprite2D" parent="AnimationLevel" unique_id=1909122795]
