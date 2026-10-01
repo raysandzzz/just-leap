@@ -33,5 +33,5 @@ func _close_panel() -> void:
 
 func _update_display() -> void:
 	var formatted_time: String = GlobalCounter.format_time(GlobalCounter.last_run_time)
-	deaths_label.text = "Deaths: %d" % GlobalCounter.deaths
-	time_label.text = "Time: %s" % formatted_time
+	deaths_label.text = tr("menu_log_deaths_label") % GlobalCounter.deaths
+	time_label.text = tr("menu_log_time_label") % formatted_time

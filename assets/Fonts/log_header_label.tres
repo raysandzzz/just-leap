@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" format=4 uid="uid://e538r4e0cctj"]
+[gd_resource type="LabelSettings" format=4 uid="uid://bxla8yk8p0odv"]
 
 [sub_resource type="Image" id="Image_sarjk"]
 data = {
@@ -2673,7 +2673,7 @@ cache/0/14/2/glyphs/15/texture_idx = 0
 
 [resource]
 font = SubResource("FontFile_fwfat")
-font_size = 14
-font_color = Color(0.89411765, 0.2901961, 0.2901961, 1)
+font_size = 12
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)

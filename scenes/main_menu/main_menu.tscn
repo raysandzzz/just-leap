@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c2fdddn1r5bht" path="res://themes/menu_button.tres" id="1_ob46e"]
 [ext_resource type="Script" uid="uid://dpgd8npucods7" path="res://scenes/main_menu/log_button.gd" id="2_qel0l"]
+[ext_resource type="LabelSettings" uid="uid://bxla8yk8p0odv" path="res://assets/Fonts/log_header_label.tres" id="3_4ujhu"]
 [ext_resource type="Texture2D" uid="uid://dwswc01mssu0j" path="res://assets/Menu/Buttons/Play.png" id="3_4xg86"]
 [ext_resource type="Script" uid="uid://doci18uw0sii8" path="res://scenes/main_menu/start.gd" id="3_5seab"]
 [ext_resource type="LabelSettings" uid="uid://e538r4e0cctj" path="res://assets/Fonts/log_label_settings.tres" id="3_dn3lk"]
@@ -46,11 +47,11 @@ close_button = NodePath("../StatsPanel/CloseButton")
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.045
-offset_left = 218.0
-offset_top = 137.0
-offset_right = 363.0
-offset_bottom = 252.0
+anchor_right = 0.094
+offset_left = 232.0
+offset_top = 136.0
+offset_right = 376.99997
+offset_bottom = 251.0
 mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/StatsPanel" unique_id=1124965854]
@@ -71,19 +72,19 @@ theme_override_constants/separation = 12
 [node name="HeaderLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=708697346]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Last Run Stats"
-label_settings = ExtResource("3_dn3lk")
+text = "menu_log_title_label"
+label_settings = ExtResource("3_4ujhu")
 horizontal_alignment = 1
 
 [node name="DeathsLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=663462425]
 layout_mode = 2
-text = "Total deaths: 0"
+text = "menu_log_deaths_label"
 label_settings = ExtResource("3_dn3lk")
 horizontal_alignment = 1
 
 [node name="TimeLabel" type="Label" parent="Control/StatsPanel/VBoxContainer" unique_id=735481167]
 layout_mode = 2
-text = "Total time: 00.00"
+text = "menu_log_time_label"
 label_settings = ExtResource("3_dn3lk")
 horizontal_alignment = 1
 
@@ -108,14 +109,14 @@ theme_override_constants/separation = 20
 [node name="Start" type="Button" parent="Control/VBoxContainer" unique_id=1117541619]
 layout_mode = 2
 theme = ExtResource("1_ob46e")
-text = " Start"
+text = "menu_btn_start"
 icon = ExtResource("3_4xg86")
 script = ExtResource("3_5seab")
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer" unique_id=383457508]
 layout_mode = 2
 theme = ExtResource("1_ob46e")
-text = "Exit"
+text = "menu_btn_quit"
 icon = ExtResource("3_wem23")
 script = ExtResource("4_3ovsr")
 

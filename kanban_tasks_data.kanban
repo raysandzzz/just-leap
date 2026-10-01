@@ -18,7 +18,9 @@
 		{
 			"uuid": "cc58771e-677e-482a-bbaa-3c3cf00cf117",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"8d13e877-f088-4734-b1e1-f8ffb12c68e9"
+			]
 		},
 		{
 			"uuid": "b9fd6e0b-7c66-4d0c-8599-6b2140a09944",
@@ -266,6 +268,13 @@
 		{
 			"uuid": "01d611f2-6498-448a-8588-3363248036e0",
 			"title": "speedrun mode",
+			"description": "",
+			"category": "152da342-9b3b-41b8-abea-8c800896961e",
+			"steps": []
+		},
+		{
+			"uuid": "8d13e877-f088-4734-b1e1-f8ffb12c68e9",
+			"title": "translating the game to spanish",
 			"description": "",
 			"category": "152da342-9b3b-41b8-abea-8c800896961e",
 			"steps": []

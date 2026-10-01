@@ -1,0 +1,18 @@
+keys,es,en
+menu_btn_start,Empezar,Start
+menu_btn_quit,Salir,Exit
+menu_log_title_label,Datos Ultima Partida,Last Run Stats
+menu_log_deaths_label,Total de muertes: %d,Total deaths: %d
+menu_log_time_label,Tiempo total: %s,Total time: %s
+pause_label,En Pausa,Paused
+countdown_label,Tiempo: %05.2f,Time %05.2f:
+npc_prompt_label, [ E ] Hablar, [ E ] Talk
+npc_dialogue_0,"Hey, bienvenido a mi primer juego en Godot :)","Hey, welcome to my first game in Godot"
+npc_dialogue_1,"Las reglas son simples...","Rules are simple..."
+npc_dialogue_2,"Toca la bandera, luego presiona el trofeo","Hit the flag, then step on the trophy"
+npc_dialogue_3,"El trofeo permanece bloqueado hasta que la bandera esta activa!","The trophy stays locked until the flag is active!"
+npc_dialogue_4,"¿Ves ese temporizador de arriba?","See that timer up there?"
+npc_dialogue_5,"Se acelera al agarrar la bandera","It speeds up once you grab the flag"
+npc_dialogue_6,"Si llega a cero, se acabó... asi que ten cuidado :)","If it hits zero, it's game over... so watch your pace :)"
+npc_dialogue_7,"¡Buena suerte!","Good luck!"
+credits_thanks_label,Gracias por jugar mi juego :), Thanks for playing my game :)

@@ -18,7 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_sarjk")
-dialogue_lines = Array[String](["Hey, welcome to my first game in Godot :)", "Rules are simple...", "Hit the flag, then step on the trophy", "The trophy stays locked until the flag is active!", "See that timer up there? ", "It speeds up once you grab the flag.", "If it hits zero, it's game over... so watch your pace!", "Good luck!"])
+dialogue_lines = Array[String](["npc_dialogue_0", "npc_dialogue_1", "npc_dialogue_2", "npc_dialogue_3", "npc_dialogue_4", "npc_dialogue_5", "npc_dialogue_6", "npc_dialogue_7"])
 dialogue_sound = NodePath("DialogueSound")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=997564478]
@@ -65,7 +65,7 @@ offset_left = -24.0
 offset_top = -49.0
 offset_right = 58.0
 offset_bottom = -26.0
-text = "[ E ] Talk"
+text = "npc_prompt_label"
 label_settings = SubResource("LabelSettings_34f1p")
 
 [node name="DialogueSound" type="AudioStreamPlayer2D" parent="." unique_id=1335011020]

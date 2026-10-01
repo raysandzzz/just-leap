@@ -62,7 +62,7 @@ func _process(delta: float):
 
 func _update_text():
 	# Format the number to two decimals places in this way: 00.00
-	label.text = "Time: %05.2f" % time_left
+	label.text = tr("countdown_label") % time_left
 
 func _activate_fast_mode():
 	time_speed = 2.0

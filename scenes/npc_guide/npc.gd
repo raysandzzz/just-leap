@@ -49,8 +49,9 @@ func _advance_dialogue() -> void:
 	
 	# Display line or finish dialogue sequence
 	if _current_index < dialogue_lines.size():
-		var raw_text: String = dialogue_lines[_current_index]
-		dialogue_label.text = "[wave amp=12.0 freq=3.0 connected=0]%s[/wave]" % raw_text   # Show the line extracted from the array
+		var raw_key: String = dialogue_lines[_current_index]
+		var translated_text: String = tr(raw_key)
+		dialogue_label.text = "[wave amp=12.0 freq=3.0 connected=0]%s[/wave]" % translated_text
 		_current_index += 1
 	else:
 		_close_dialogue()

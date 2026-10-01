@@ -789,7 +789,7 @@ offset_top = -648.0
 offset_right = 76.0
 offset_bottom = -625.0
 scale = Vector2(1.28, 1.28)
-text = "Thank you for playing my game :)"
+text = "credits_thanks_label"
 label_settings = ExtResource("8_4s3xv")
 
 [node name="Credits" type="Label" parent="AnimationLevel" unique_id=1152637022]

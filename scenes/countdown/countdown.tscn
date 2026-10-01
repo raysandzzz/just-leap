@@ -28,5 +28,5 @@ offset_left = -33.0
 offset_right = 33.0
 offset_bottom = 16.0
 grow_horizontal = 2
-text = "Time: 00.00"
+text = "countdown_label"
 label_settings = ExtResource("1_r25xj")

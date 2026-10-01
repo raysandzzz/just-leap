@@ -38,6 +38,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1366128807]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,7 +51,7 @@ offset_right = 42.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Paused"
+text = "pause_label"
 label_settings = ExtResource("2_xanx7")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/ColorRect" unique_id=1500649481]
