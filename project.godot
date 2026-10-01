@@ -38,10 +38,6 @@ window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/virtual_joystick_DX/plugin.cfg")
-
 [input]
 
 jump={
