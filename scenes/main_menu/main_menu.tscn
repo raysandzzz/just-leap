@@ -9,11 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b6g4418pxsm6a" path="res://assets/Menu/Buttons/Close.png" id="3_wem23"]
 [ext_resource type="Script" uid="uid://cvo3ggtxjqwul" path="res://scenes/main_menu/quit.gd" id="4_3ovsr"]
 [ext_resource type="Texture2D" uid="uid://bnw5wqd1lio4v" path="res://assets/Menu/Buttons/Leaderboard.png" id="4_lqpn7"]
-[ext_resource type="Texture2D" uid="uid://bx0b17vooagm1" path="res://assets/Menu/Buttons/Volume.png" id="4_uqeha"]
-[ext_resource type="Texture2D" uid="uid://5gh65bs32tgq" path="res://assets/Menu/Buttons/Volume-disabled.png" id="5_3ovsr"]
-[ext_resource type="Script" uid="uid://c6hcaqmo5wrev" path="res://scenes/main_menu/volume.gd" id="8_4xg86"]
-[ext_resource type="Script" uid="uid://cvnvk7r7nyoa8" path="res://scenes/main_menu/volume_slider.gd" id="9_thkx5"]
 [ext_resource type="FontFile" uid="uid://rnvq8yi32w2g" path="res://assets/Fonts/dialogues_font.tres" id="10_x2yjq"]
+[ext_resource type="PackedScene" uid="uid://bq343j0o2hph" path="res://scenes/volume_control/volume_control.tscn" id="11_qel0l"]
 [ext_resource type="Texture2D" uid="uid://dg6j8mptotiew" path="res://assets/Menu/Buttons/Back.png" id="12_qel0l"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_x2yjq"]
@@ -125,26 +122,16 @@ stream = SubResource("AudioStreamWAV_x2yjq")
 volume_db = 1.0
 bus = &"SFX"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control" unique_id=414901976]
-layout_mode = 0
-offset_left = 576.0
+[node name="VolumeControl" parent="Control" unique_id=1809334287 instance=ExtResource("11_qel0l")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
 offset_top = 16.0
-offset_right = 616.0
+offset_right = -23.0
 offset_bottom = 66.0
-mouse_filter = 2
-
-[node name="Volume" type="CheckButton" parent="Control/VBoxContainer2" unique_id=1541179314]
-layout_mode = 2
-theme_override_icons/checked = ExtResource("5_3ovsr")
-theme_override_icons/unchecked = ExtResource("4_uqeha")
-script = ExtResource("8_4xg86")
-
-[node name="VolumeSlider" type="HSlider" parent="Control/VBoxContainer2" unique_id=345991973]
-layout_mode = 2
-max_value = 1.0
-step = 0.05
-value = 0.5
-script = ExtResource("9_thkx5")
+grow_horizontal = 0
 
 [node name="Label" type="Label" parent="Control" unique_id=1535436313]
 layout_mode = 0

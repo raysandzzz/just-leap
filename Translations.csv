@@ -8,27 +8,27 @@ pause_label,En Pausa,Paused
 countdown_label,Tiempo: %05.2f,Time %05.2f:
 npc_prompt_label, [ E ] Hablar, [ E ] Talk
 npc_dialogue_0,"Hey, bienvenido a mi primer juego en Godot :)","Hey, welcome to my first game in Godot :)"
-npc_dialogue_1,"Las reglas son simples...","Rules are simple..."
+npc_dialogue_1,Las reglas son simples...,Rules are simple...
 npc_dialogue_2,"Toca la bandera, luego presiona el trofeo.","Hit the flag, then step on the trophy"
-npc_dialogue_3,"El trofeo permanecerá bloqueado hasta que la bandera esta activa!","The trophy stays locked until the flag is active!"
-npc_dialogue_4,"¿Ves ese temporizador de arriba?","See that timer up there?"
-npc_dialogue_5,"Se acelera al activar la bandera","It speeds up once you touch the flag"
-npc_dialogue_6,"Si llega a cero, se acabó... asi que ten cuidado :)","If it hits zero, it's game over... so watch your pace :)"
-npc_dialogue_7,"¡Buena suerte!","Good luck!"
-npc2_dialogue_0,"Epa! Me alegro de verte otra vez","Hi there! I'm happy to see you again"
-npc2_dialogue_1,"Hay una cosita que olvidé decirte antes","There was a thing that i forgot to tell you"
+npc_dialogue_3,El trofeo permanecerá bloqueado hasta que la bandera este activa!,The trophy stays locked until the flag is active!
+npc_dialogue_4,¿Ves ese temporizador de arriba?,See that timer up there?
+npc_dialogue_5,Se acelera al activar la bandera,It speeds up once you touch the flag
+npc_dialogue_6,Si llega a cero pierdes... asi que ten cuidado :),"If it hits zero, it's game over... so watch your pace :)"
+npc_dialogue_7,¡Buena suerte!,Good luck!
+npc2_dialogue_0,Epa! Me alegro de verte otra vez,Hi there! I'm happy to see you again
+npc2_dialogue_1,Hay una cosita que olvidé decirte antes,There was a thing that i forgot to tell you
 npc2_dialogue_2,"Algunos niveles se pueden pasar más rápido, si sabes como","In levels, sometimes there's faster ways to beat'em"
-npc2_dialogue_3,"Pero de igual forma es un poco más difícil","But it's also kinda hard tho"
-npc2_dialogue_4,"Entonces espero lo hayas notado. Pero en caso de que no...","Then I hope you noticed that. But if you don't..."
-npc2_dialogue_5,"¿Puedes ver aquel muro sin pinchos junto a la bandera?","Can you see the wall without spikes next to flag?"
-npc2_dialogue_6,"Lo puedes escalar. De esa forma, tomarías un atajo","You can climb it. Thus you'll take a shortcut"
-npc2_dialogue_7,"Los niveles se hacen un poco más complicados a partir de acá...","The levels get a little harder from this point..."
-npc2_dialogue_8,"¿O no? Depende de ti jaja.","Or not? It's up to you haha."
-npc2_dialogue_9,"¡Tu puedes!","Go for it!"
+npc2_dialogue_3,Pero de igual forma es un poco más difícil,But it's also kinda hard tho
+npc2_dialogue_4,Entonces espero lo hayas notado. Pero en caso de que no...,Then I hope you noticed that. But if you don't...
+npc2_dialogue_5,¿Puedes ver aquel muro sin pinchos junto a la bandera?,Can you see the wall without spikes next to flag?
+npc2_dialogue_6,"Lo puedes escalar. De esa forma, tomarías un atajo",You can climb it. Thus you'll take a shortcut
+npc2_dialogue_7,Los niveles se hacen un poco más complicados a partir de acá...,The levels get a little harder from this point...
+npc2_dialogue_8,¿O no? Depende de ti jaja.,Or not? It's up to you haha.
+npc2_dialogue_9,¡Tu puedes!,Go for it!
 credits_thanks_label,Gracias por jugar :), Thanks for\n   playing my game :)
 npc_clear_0,"Vaya, veo que ya lo lograste!","Woah, I see you've already beaten it!"
 npc_clear_1,"Felicidades, espero lo hayas disfrutado.","Congrats, I hope you liked it"
 npc_clear_2,"Por si no lo notaste, apareció otro botón en el menu","Btw if you didn't notice, another button has appeared in the menu."
-npc_clear_3,"Ahí se guardan los datos de tu ultima partida COMPLETADA","That is where the stats from your last COMPLETED run will be saved."
+npc_clear_3,Ahí se guardan los datos de tu ultima partida COMPLETADA,That is where the stats from your last COMPLETED run will be saved.
 npc_clear_4,"Si sales del juego a mitad de camino, no se guardará nada nuevo","If you exit the game midway through, nothing new will be saved."
-npc_clear_5,"Intenta superar tu tiempo. Si te atreves...","Try to beat your record if you dare..."
+npc_clear_5,Intenta superar tu tiempo. Si te atreves...,Try to beat your record if you dare...

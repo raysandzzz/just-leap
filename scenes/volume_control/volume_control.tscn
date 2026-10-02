@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bq343j0o2hph"]
+
+[ext_resource type="Texture2D" uid="uid://bx0b17vooagm1" path="res://assets/Menu/Buttons/Volume.png" id="1_s1ruc"]
+[ext_resource type="Texture2D" uid="uid://5gh65bs32tgq" path="res://assets/Menu/Buttons/Volume-disabled.png" id="2_3b8u7"]
+[ext_resource type="Script" uid="uid://c6hcaqmo5wrev" path="res://scenes/volume_control/volume.gd" id="3_35o8b"]
+
+[node name="VolumeControl" type="VBoxContainer" unique_id=1809334287]
+offset_right = 33.0
+offset_bottom = 50.0
+mouse_filter = 2
+
+[node name="Volume" type="CheckButton" parent="." unique_id=1733324714]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("1_s1ruc")
+theme_override_icons/unchecked = ExtResource("2_3b8u7")
+script = ExtResource("3_35o8b")
+
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=824477248]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[connection signal="value_changed" from="VolumeSlider" to="Volume" method="_on_volume_slider_value_changed"]
