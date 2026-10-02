@@ -6,7 +6,7 @@ A simple platformer where you just have to reach the flag and step on the trophy
 This is a short game created as an excuse to learn the basics of Godot, but I enjoyed the process and the result enough to publish it here.
 
 ## Screenshot
-<img src="assets/Screenshots/Screenshot-MainMenu.png" alt="Main Menu" width="600">
+<img src="assets/Screenshots/Screenshot-MainMenu.png" alt="Main Menu" width="700">
 
 ## Download
 You can download the playable Windows version from the [Releases](../../releases) section.
@@ -14,7 +14,7 @@ You can download the playable Windows version from the [Releases](../../releases
 ## Assets
 Since this was a learning project, I wanted a fast way to get nice assets without spending too much time on them. In future games, I'll put more focus on this, but for now, a huge thanks to these creators:
 
-* **Graphics:** [Pixel Adventure by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure1) (modified a bit to fit my needs).
+* **Graphics:** Pixel Adventure by Pixel Frog (modified a bit to fit my needs).
 * **SFX:** Free retro bundle by Jeageroni on Itch.io, plus some sounds from YouTube, Pixabay, and FreeToUse.
 * **Music Tracks:**
   * *Quiet Bounce* - Aventure
