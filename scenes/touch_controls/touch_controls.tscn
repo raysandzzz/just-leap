@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cntj0v8b17q03"]
+
+[ext_resource type="Script" uid="uid://cr02vqpikxoao" path="res://scenes/touch_controls/touch_controls.gd" id="1_jxvma"]
+[ext_resource type="Texture2D" uid="uid://bnl6lswe3p1n2" path="res://assets/MobileButton/up-arrow-button.png" id="2_kxbfq"]
+[ext_resource type="Texture2D" uid="uid://bj1ku5473hva5" path="res://assets/MobileButton/up-arrow-button2.png" id="3_s0xgp"]
+
+[node name="TouchControls" type="CanvasLayer" unique_id=1641862978]
+script = ExtResource("1_jxvma")
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=1641504536]
+modulate = Color(1, 1, 1, 0.5882353)
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 0.85
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 48.0
+joystick_mode = 1
+action_left = &"left"
+action_right = &"right"
+visibility_mode = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=823947905]
+modulate = Color(1, 1, 1, 0.16078432)
+position = Vector2(488, 216.00002)
+scale = Vector2(0.39999872, 0.39999872)
+texture_normal = ExtResource("2_kxbfq")
+texture_pressed = ExtResource("3_s0xgp")
+passby_press = true
+action = "jump"

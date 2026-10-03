@@ -17,12 +17,19 @@ extends Area2D
 var _can_interact: bool = false
 var _is_talking: bool = false
 var _current_index: int = 0
+var _is_advancing: bool = false # Safety lock to prevent double touch triggers
 
 func _ready() -> void:
 	if requires_game_beaten and not GlobalCounter.has_beaten_game:
 		queue_free()
 		return
 	animation.play("Idle")
+	
+	# Adapt prompt text based on the platform using translation keys
+	if OS.has_feature("mobile"):
+		prompt_label.text = tr("npc_prompt_mobile")
+	else:
+		prompt_label.text = tr("npc_prompt_label")
 	
 	prompt_label.visible = false
 	dialogue_label.visible = false
@@ -35,14 +42,21 @@ func _ready() -> void:
 		body_exited.connect(_on_body_exited)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not _can_interact:
+	# Ignore input if player is not near or if text is currently advancing
+	if not _can_interact or _is_advancing:
 		return
-		
-	if Input.is_action_just_pressed("interact"):
+	
+	# Check for PC keyboard interact action or Mobile screen tap
+	var is_interact_action: bool = event.is_action_pressed("interact")
+	var is_screen_tap: bool = event is InputEventScreenTouch and event.pressed
+	
+	if is_interact_action or is_screen_tap:
+		get_viewport().set_input_as_handled() # Consume event so it doesn't propagate
 		_advance_dialogue()
-		dialogue_sound.play()
 
 func _advance_dialogue() -> void:
+	_is_advancing = true # Lock input temporarily
+	
 	# Hide prompt when conversation begins
 	if _is_talking == false:
 		_is_talking = true
@@ -50,6 +64,8 @@ func _advance_dialogue() -> void:
 		prompt_label.visible = false
 		dialogue_label.visible = true
 		Events.dialogue_started.emit()
+	
+	dialogue_sound.play()
 	
 	# Display line or finish dialogue sequence
 	if _current_index < dialogue_lines.size():
@@ -59,6 +75,10 @@ func _advance_dialogue() -> void:
 		_current_index += 1
 	else:
 		_close_dialogue()
+		
+	# Tiny delay to prevent double triggers on sensitive mobile touch screens
+	await get_tree().create_timer(0.15).timeout
+	_is_advancing = false
 
 func _close_dialogue() -> void:
 	_is_talking = false

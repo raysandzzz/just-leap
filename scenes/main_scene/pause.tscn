@@ -6,9 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://drkfjnjo6lm4o" path="res://assets/Audio/SFX/pause_sound.wav" id="3_cxayc"]
 [ext_resource type="PackedScene" uid="uid://dk4xv7sk4or8o" path="res://scenes/death_counter/death_counter.tscn" id="4_7ioox"]
 
-[node name="Pause" type="Node" unique_id=1183054939 node_paths=PackedStringArray("paused_screen")]
+[node name="Pause" type="Node" unique_id=1183054939 node_paths=PackedStringArray("paused_screen", "volume_control")]
 script = ExtResource("1_ejmu6")
 paused_screen = NodePath("CanvasLayer/ColorRect")
+volume_control = NodePath("CanvasLayer/ColorRect/VolumeControl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1771034175]
 

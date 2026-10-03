@@ -32,3 +32,4 @@ npc_clear_2,"Por si no lo notaste, apareció otro botón en el menu","Btw if you
 npc_clear_3,Ahí se guardan los datos de tu ultima partida COMPLETADA,That is where the stats from your last COMPLETED run will be saved.
 npc_clear_4,"Si sales del juego a mitad de camino, no se guardará nada nuevo","If you exit the game midway through, nothing new will be saved."
 npc_clear_5,Intenta superar tu tiempo. Si te atreves...,Try to beat your record if you dare...
+npc_prompt_mobile,Toca para hablar,Tap to talk

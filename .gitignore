@@ -2,6 +2,9 @@
 .godot/
 /android/
 
+# Allow essential addon configs
+!addons/**/plugin.cfg
+
 # Ignore private notes
 addons/**/*.json
 addons/**/*.cfg
@@ -11,3 +14,5 @@ addons/**/data/
 # Ignore builds
 builds/
 *.exe
+*.apk
+*.idsig

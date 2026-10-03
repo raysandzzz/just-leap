@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d2ye21lx4nvqp" path="res://scenes/rotated_tiles/rotated_tiles.tscn" id="1_icy5c"]
 [ext_resource type="PackedScene" uid="uid://m5va2tic77hf" path="res://scenes/player/player.tscn" id="1_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://d0ofuekn75b0p" path="res://scenes/countdown/countdown.tscn" id="1_ouxo3"]
+[ext_resource type="PackedScene" uid="uid://cntj0v8b17q03" path="res://scenes/touch_controls/touch_controls.tscn" id="1_rmjfq"]
 [ext_resource type="PackedScene" uid="uid://b7ticj2ag1fjw" path="res://scenes/trampoline/trampoline.tscn" id="4_rmjfq"]
 [ext_resource type="PackedScene" uid="uid://co4g7usx4qjsm" path="res://scenes/elevator/elevator.tscn" id="5_7pb6i"]
 [ext_resource type="PackedScene" uid="uid://b4cwnwf6oirjl" path="res://scenes/trophy/trophy.tscn" id="6_xfk5q"]
@@ -11,12 +12,11 @@
 [node name="Level" type="Node2D" unique_id=52509437]
 z_index = 1
 
+[node name="TouchControls" parent="." unique_id=1641862978 instance=ExtResource("1_rmjfq")]
+
 [node name="RotatedTiles" parent="." unique_id=225923780 instance=ExtResource("1_icy5c")]
 
 [node name="Countdown" parent="." unique_id=85377098 instance=ExtResource("1_ouxo3")]
-
-[node name="Label" parent="Countdown/Control" parent_id_path=PackedInt32Array(85377098, 599405979) index="0" unique_id=1097365384]
-visible = true
 
 [node name="Player" parent="." unique_id=182577052 instance=ExtResource("1_mbbpy")]
 position = Vector2(27, -26)
