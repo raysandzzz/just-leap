@@ -2,14 +2,14 @@
 .godot/
 /android/
 
-# Allow essential addon configs
-!addons/**/plugin.cfg
-
 # Ignore private notes
 addons/**/*.json
 addons/**/*.cfg
 addons/**/*.txt
 addons/**/data/
+
+# Re-allow plugin.cfg (must go AFTER addons/**/*.cfg)
+!addons/**/plugin.cfg
 
 # Ignore builds
 builds/
